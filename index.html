@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GUIATREND - Tu Guía por México</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Aquí irían fuentes personalizadas si se usan, por ejemplo, Google Fonts -->
+</head>
+<body class="light-mode"> <!-- Inicia en modo claro por defecto -->
+
+    <header id="main-header" class="glass-effect">
+        <div class="container header-container">
+            <div class="logo">
+                <a href="index.html">
+                    <span class="logo-guia">Guía</span><span class="logo-trend">Trend</span>
+                    <!-- Icono opcional SVG o FontAwesome podría ir aquí -->
+                </a>
+            </div>
+
+            <nav id="main-nav" class="main-navigation">
+                <ul class="nav-list">
+                    <li class="nav-item"><a href="index.html" class="nav-link active">Inicio</a></li>
+                    <li class="nav-item has-submenu">
+                        <a href="#" class="nav-link">Destinos</a>
+                        <ul class="submenu">
+                            <li class="submenu-item"><a href="#monterrey" class="submenu-link">Monterrey</a></li>
+                            <li class="submenu-item"><a href="#guadalajara" class="submenu-link">Guadalajara</a></li>
+                            <li class="submenu-item"><a href="#cdmx" class="submenu-link">CDMX</a></li>
+                            <li class="submenu-item"><a href="#cancun" class="submenu-link">Cancún</a></li>
+                            <li class="submenu-item"><a href="#palenque" class="submenu-link">Palenque</a></li>
+                            <li class="submenu-item"><a href="#puerto-vallarta" class="submenu-link">Puerto Vallarta</a></li>
+                            <li class="submenu-item"><a href="#veracruz" class="submenu-link">Veracruz</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item has-submenu">
+                        <a href="#directorio" class="nav-link">Directorio</a>
+                        <ul class="submenu">
+                            <li class="submenu-item"><a href="#restaurantes" class="submenu-link">Restaurantes</a></li>
+                            <li class="submenu-item"><a href="#bares" class="submenu-link">Bares</a></li>
+                            <li class="submenu-item"><a href="#turismo" class="submenu-link">Turismo</a></li>
+                            <li class="submenu-item"><a href="#servicios" class="submenu-link">Servicios</a></li>
+                            <li class="submenu-item"><a href="#eventos-directorio" class="submenu-link">Eventos</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item"><a href="#eventos" class="nav-link">Eventos (2025-2026)</a></li>
+                    <li class="nav-item"><a href="#cartelera" class="nav-link">Cartelera (2025-2026)</a></li>
+                    <li class="nav-item has-submenu">
+                        <a href="#blog" class="nav-link">Blog</a>
+                        <ul class="submenu">
+                            {/* Categorías y ciudades se podrían cargar dinámicamente o añadir más items */}
+                            <li class="submenu-item"><a href="#blog-categoria1" class="submenu-link">Categoría 1</a></li>
+                            <li class="submenu-item"><a href="#blog-ciudad1" class="submenu-link">Ciudad 1</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item"><a href="#nosotros" class="nav-link">Nosotros</a></li>
+                    <li class="nav-item"><a href="#contacto" class="nav-link">Contacto</a></li>
+                </ul>
+            </nav>
+
+            <div class="header-controls">
+                <button id="theme-switcher" class="control-button theme-switch" aria-label="Cambiar tema">
+                    <span class="light-icon">☀️</span>
+                    <span class="dark-icon">🌙</span>
+                </button>
+                <button id="login-switcher" class="control-button login-switch" aria-label="Iniciar sesión / Ver perfil">
+                    <span class="profile-icon-offline"></span>
+                    {/* <span class="profile-icon-online"></span>  Se mostrará con JS/CSS */}
+                </button>
+                <button id="lang-switcher" class="control-button lang-switch" aria-label="Cambiar idioma">
+                    <span class="lang-icon lang-es">🇲🇽</span>
+                    <span class="lang-icon lang-en" style="display:none;">🇬🇧</span>
+                    {/* <span class="lang-text">ESP</span> */}
+                </button>
+                 <button id="nav-toggle" class="nav-toggle-button" aria-label="Abrir menú de navegación">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section id="hero-slider-section">
+            <div class="hero-slider">
+                <!-- Slide 1 (Ejemplo inicial) -->
+                <div class="slide active">
+                    <img src="images/placeholder_hero.webp" data-src="images/destinations/cdmx_hero.webp" alt="Ciudad de México desde las alturas" class="lazy hero-image">
+                    <!-- Idealmente, usar <picture> para diferentes fuentes de imagen -->
+                    <!-- <picture>
+                        <source media="(min-width: 768px)" srcset="images/destinations/cdmx_hero_large.webp">
+                        <source media="(min-width: 480px)" srcset="images/destinations/cdmx_hero_medium.webp">
+                        <img src="images/destinations/cdmx_hero_small.webp" data-src="images/destinations/cdmx_hero_small.webp" alt="Destino destacado" class="lazy hero-image">
+                    </picture> -->
+                    <div class="hero-content">
+                        <h1 class="hero-title">DESCUBRE TREND POR MÉXICO</h1>
+                        <p class="hero-subtitle">Guía turística, directorio comercial, eventos y mucho más.</p>
+                        <div class="hero-buttons">
+                            <a href="#explorar-destacados" class="btn btn-primary btn-explorar">Explorar</a>
+                            <a href="#cerca-de-mi" class="btn btn-secondary btn-cerca-de-mi">
+                                <span class="location-icon">📍</span> Cerca de mí
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Más slides se añadirán dinámicamente o estáticamente aquí -->
+                <!-- Ejemplo Slide 2 -->
+                <!-- <div class="slide">
+                    <img src="images/placeholder_hero.webp" data-src="images/destinations/cancun_hero.webp" alt="Playas de Cancún" class="lazy hero-image">
+                    <div class="hero-content">
+                        <h1 class="hero-title">PARAÍSOS DE ARENA Y SOL</h1>
+                        <p class="hero-subtitle">Descubre las mejores playas y resorts.</p>
+                         <div class="hero-buttons">
+                            <a href="#explorar-playas" class="btn btn-primary btn-explorar">Explorar Playas</a>
+                            <a href="#cerca-de-mi-playas" class="btn btn-secondary btn-cerca-de-mi">
+                                <span class="location-icon">📍</span> Cerca de mí
+                            </a>
+                        </div>
+                    </div>
+                </div> -->
+            </div>
+            <div class="slider-indicators glass-effect">
+                <button class="indicator active" data-slide-to="0" aria-label="Ir a slide 1"></button>
+                <button class="indicator" data-slide-to="1" aria-label="Ir a slide 2"></button>
+                <button class="indicator" data-slide-to="2" aria-label="Ir a slide 3"></button>
+                {/* Se generarán más indicadores según el número de slides */}
+            </div>
+        </section>
+
+        <section id="search-section" class="container section-padding">
+            <h2 class="section-title text-center">Encuentra lo que Necesitas</h2>
+            <div class="search-bar-container glass-effect">
+                <input type="search" id="main-search-input" name="main-search" placeholder="Busca lo mejor de la Guía en Ciudad, Negocio o Servicio..." aria-label="Campo de búsqueda principal">
+                <button id="main-search-button" class="btn-search-icon" aria-label="Buscar">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="currentColor"><path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5A6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>
+                </button>
+            </div>
+
+            <div class="filter-controls">
+                <button id="toggle-filters-button" class="btn btn-secondary btn-sm" aria-expanded="false" aria-controls="advanced-filters-container">
+                    Filtros Avanzados <span class="filter-arrow">▼</span>
+                </button>
+                <div id="advanced-filters-container" class="advanced-filters" style="display: none;">
+                    <div class="filter-group">
+                        <label for="filter-city">Ciudad:</label>
+                        <select id="filter-city" name="filter-city">
+                            <option value="">Todas</option>
+                            <option value="mty">Monterrey</option>
+                            <option value="gdl">Guadalajara</option>
+                            <option value="cdmx">CDMX</option>
+                            {/* <!-- Más ciudades --> */}
+                        </select>
+                    </div>
+                    <div class="filter-group">
+                        <label for="filter-category">Categoría:</label>
+                        <select id="filter-category" name="filter-category">
+                            <option value="">Todas</option>
+                            <option value="restaurantes">Restaurantes</option>
+                            <option value="bares">Bares</option>
+                            <option value="turismo">Turismo</option>
+                            {/* <!-- Más categorías --> */}
+                        </select>
+                    </div>
+                    <div class="filter-group">
+                        <label for="filter-rating">Valoración:</label>
+                        <select id="filter-rating" name="filter-rating">
+                            <option value="">Cualquiera</option>
+                            <option value="5">★★★★★</option>
+                            <option value="4">★★★★☆ y más</option>
+                            <option value="3">★★★☆☆ y más</option>
+                        </select>
+                    </div>
+                    <div class="filter-actions">
+                        <button id="apply-filters-button" class="btn btn-primary btn-sm">Aplicar Filtros</button>
+                        <button id="clear-filters-button" class="btn btn-tertiary btn-sm">Limpiar</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Lightbox para Resultados de Búsqueda (inicialmente oculto) -->
+        <div id="search-results-lightbox" class="lightbox" style="display: none;">
+            <div class="lightbox-content glass-effect">
+                <button class="lightbox-close" aria-label="Cerrar resultados">&times;</button>
+                <h3 class="lightbox-title">Resultados de tu Búsqueda</h3>
+                <div id="lightbox-cards-container" class="cards-grid">
+                    <!-- Las tarjetas de negocios se cargarán aquí (ej. 3 por categoría) -->
+                    <p>Aquí se mostrarán los resultados...</p>
+                    {/* Ejemplo de tarjeta (se diseñará mejor con CSS)
+                    <div class="business-card-simple">
+                        <h4>Nombre del Negocio</h4>
+                        <p>Categoría</p>
+                        <a href="#">Ver más</a>
+                    </div>
+                    */}
+                </div>
+                <div class="lightbox-footer">
+                    <button id="view-full-directory-button" class="btn btn-primary">Ver Directorio Completo</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Resto del contenido principal irá aquí -->
+
+        <section id="categories-section" class="container section-padding">
+            <h2 class="section-title text-center">Explora Nuestras Categorías</h2>
+            <div class="category-cards-grid">
+
+                <a href="#destinos" class="category-card-link">
+                    <div class="category-card glass-effect">
+                        <div class="category-icon" aria-hidden="true">📍</div>
+                        <h3 class="category-name">Destinos</h3>
+                        <p class="category-description">Descubre ciudades y pueblos mágicos.</p>
+                    </div>
+                </a>
+
+                <a href="#gastronomia" class="category-card-link">
+                    <div class="category-card glass-effect">
+                        <div class="category-icon" aria-hidden="true">🍔</div>
+                        <h3 class="category-name">Gastronomía</h3>
+                        <p class="category-description">Saborea los mejores platillos y restaurantes.</p>
+                    </div>
+                </a>
+
+                <a href="#hospedaje" class="category-card-link">
+                    <div class="category-card glass-effect">
+                        <div class="category-icon" aria-hidden="true">🏨</div>
+                        <h3 class="category-name">Hospedaje</h3>
+                        <p class="category-description">Encuentra hoteles, hostales y más.</p>
+                    </div>
+                </a>
+
+                <a href="#servicios" class="category-card-link">
+                    <div class="category-card glass-effect">
+                        <div class="category-icon" aria-hidden="true">🛠️</div>
+                        <h3 class="category-name">Servicios</h3>
+                        <p class="category-description">Todo lo que necesitas, al alcance.</p>
+                    </div>
+                </a>
+
+                <a href="#eventos" class="category-card-link">
+                    <div class="category-card glass-effect">
+                        <div class="category-icon" aria-hidden="true">🎉</div>
+                        <h3 class="category-name">Eventos</h3>
+                        <p class="category-description">Conciertos, festivales y más.</p>
+                    </div>
+                </a>
+
+                <a href="#cartelera" class="category-card-link">
+                    <div class="category-card glass-effect">
+                        <div class="category-icon" aria-hidden="true">🎬</div>
+                        <h3 class="category-name">Cartelera</h3>
+                        <p class="category-description">Cine, teatro y espectáculos.</p>
+                    </div>
+                </a>
+
+                <a href="#promociones" class="category-card-link">
+                    <div class="category-card glass-effect">
+                        <div class="category-icon" aria-hidden="true">🏷️</div>
+                        <h3 class="category-name">Promociones</h3>
+                        <p class="category-description">Ofertas y descuentos exclusivos.</p>
+                    </div>
+                </a>
+
+                <a href="#directorio-completo" class="category-card-link">
+                    <div class="category-card glass-effect">
+                        <div class="category-icon" aria-hidden="true">💼</div>
+                        <h3 class="category-name">Directorio</h3>
+                        <p class="category-description">Todos los negocios y servicios.</p>
+                    </div>
+                </a>
+
+            </div>
+        </section>
+
+        <section id="how-it-works-section" class="section-padding">
+            <div class="container">
+                <h2 class="section-title text-center">¿Cómo Funciona GUIATREND?</h2>
+                <div class="how-it-works-container glass-effect">
+                    <div class="steps-grid">
+                        <div class="step-item">
+                            <div class="step-icon" aria-hidden="true">🔍</div>
+                            <h3 class="step-title">Busca</h3>
+                            <p class="step-description">Encuentra lugares y servicios por ubicación, categoría o nombre.</p>
+                        </div>
+                        <div class="step-item">
+                            <div class="step-icon" aria-hidden="true">🗺️</div>
+                            <h3 class="step-title">Explora</h3>
+                            <p class="step-description">Ve fotos, horarios, valoraciones y toda la información que necesitas.</p>
+                        </div>
+                        <div class="step-item">
+                            <div class="step-icon" aria-hidden="true">📞</div>
+                            <h3 class="step-title">Contacta</h3>
+                            <p class="step-description">Llama, envía WhatsApp o visita el lugar sin salir de la app.</p>
+                        </div>
+                        <div class="step-item">
+                            <div class="step-icon" aria-hidden="true">😊</div>
+                            <h3 class="step-title">Disfruta</h3>
+                            <p class="step-description">Vive México con GUIATREND, tu guía local confiable.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="faq-section" class="container section-padding">
+            <h2 class="section-title text-center">Preguntas Frecuentes</h2>
+            <div class="faq-container">
+                <details class="faq-item">
+                    <summary class="faq-question">¿Qué es GUIATREND?</summary>
+                    <div class="faq-answer">
+                        <p>GUIATREND es tu guía completa para explorar México. Ofrecemos un directorio comercial, información turística, cartelera de eventos, y mucho más para ayudarte a descubrir lo mejor de cada rincón del país.</p>
+                    </div>
+                </details>
+                <details class="faq-item">
+                    <summary class="faq-question">¿Cómo puedo encontrar un negocio específico?</summary>
+                    <div class="faq-answer">
+                        <p>Utiliza nuestra barra de búsqueda en la parte superior. Puedes buscar por nombre, categoría, ciudad, o incluso filtrar por servicios específicos para encontrar exactamente lo que necesitas.</p>
+                    </div>
+                </details>
+                <details class="faq-item">
+                    <summary class="faq-question">¿Es gratis usar GUIATREND?</summary>
+                    <div class="faq-answer">
+                        <p>Sí, el acceso a toda la información y funcionalidades de GUIATREND para usuarios es completamente gratuito. ¡Explora sin límites!</p>
+                    </div>
+                </details>
+                <details class="faq-item">
+                    <summary class="faq-question">¿Cómo puedo registrar mi negocio en GUIATREND?</summary>
+                    <div class="faq-answer">
+                        <p>¡Nos encantaría tenerte! Visita nuestra sección '¿Tienes un negocio?' o contáctanos directamente a través de los medios proporcionados para conocer los pasos y beneficios.</p>
+                    </div>
+                </details>
+                <details class="faq-item">
+                    <summary class="faq-question">¿GUIATREND está disponible como aplicación móvil?</summary>
+                    <div class="faq-answer">
+                        <p>Actualmente GUIATREND es una Progressive Web App (PWA), lo que significa que puedes accederla desde cualquier dispositivo con un navegador web y disfrutar de una experiencia similar a una app nativa. ¡Incluso puedes añadirla a tu pantalla de inicio!</p>
+                    </div>
+                </details>
+            </div>
+        </section>
+
+        <section id="register-business-section" class="section-padding">
+            <div class="container">
+                <div class="register-business-card glass-effect">
+                    <h2 class="card-title">¿Tienes un negocio?</h2>
+                    <p class="card-tagline">Registra tu establecimiento en GUIATREND y llega a miles de clientes potenciales.</p>
+
+                    <div class="contact-info-business">
+                        <p><span class="contact-label">Email:</span> <a href="mailto:estamosentrend@gmail.com">estamosentrend@gmail.com</a></p>
+                        <p><span class="contact-label">Teléfono:</span> <a href="tel:+525665828832">+52 56 6582 8832</a></p>
+                    </div>
+
+                    <div class="action-buttons-business">
+                        <a href="https://wa.me/525665828832?text=Hola%2C%20estoy%20interesado%20en%20registrar%20mi%20negocio%20en%20GUIATREND." target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp">
+                            <span class="btn-icon">🟢</span> Contáctanos por WhatsApp
+                        </a>
+                        <a href="mailto:estamosentrend@gmail.com?subject=Registro%20de%20Negocio%20en%20GUIATREND&body=Hola%2C%0A%0AQuisiera%20obtener%20m%C3%A1s%20informaci%C3%B3n%20sobre%20c%C3%B3mo%20registrar%20mi%20negocio%20en%20GUIATREND.%0A%0AGracias." class="btn btn-email">
+                            <span class="btn-icon">📧</span> Enviar Correo
+                        </a>
+                        <a href="#contacto" class="btn btn-contact-form">
+                            <span class="btn-icon">📍</span> Ver Formulario de Contacto
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="newsletter-section" class="section-padding">
+            <div class="container text-center">
+                <h3 class="newsletter-title">Mantente al Día con GUIATREND</h3>
+                <p class="newsletter-tagline">Recibe las últimas noticias, ofertas y guías de viaje directamente en tu correo.</p>
+                <form class="newsletter-form" action="#" method="POST"> {/* La acción es placeholder */}
+                    <label for="newsletter-email" class="sr-only">Correo electrónico para newsletter</label>
+                    <input type="email" id="newsletter-email" name="email" placeholder="Tu correo electrónico" required class="newsletter-input">
+                    <button type="submit" class="btn btn-newsletter-submit">Enviar</button>
+                </form>
+            </div>
+        </section>
+
+    </main>
+
+    <footer id="main-footer" class="glass-effect">
+        <div class="container footer-container">
+            <div class="footer-column footer-contact">
+                <h4 class="footer-heading">Contáctanos</h4>
+                <p><a href="mailto:estamosentrend@gmail.com">estamosentrend@gmail.com</a></p>
+                <p><a href="tel:+525665828832">+52 56 6582 8832</a></p>
+                <p>Horario: Lun-Vie 9:00 a 18:00</p>
+                <h5 class="footer-subheading">Dirección Principal:</h5>
+                <p>Av Diego Díaz de Berlanga 400, San Nicolás de los Garza, Nuevo León, México</p>
+                <h5 class="footer-subheading">Oficina de Operaciones:</h5>
+                <p>Azucena 265 Col San Carlos, Guadalajara, Jalisco, México</p>
+            </div>
+
+            <div class="footer-column footer-links">
+                <h4 class="footer-heading">Enlaces Rápidos</h4>
+                <ul class="footer-list">
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="#directorio">Directorio</a></li>
+                    <li><a href="#eventos">Eventos</a></li>
+                    <li><a href="#blog">Blog</a></li>
+                    <li><a href="#nosotros">Nosotros</a></li>
+                    <li><a href="#contacto">Contacto</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-column footer-social">
+                <h4 class="footer-heading">Síguenos</h4>
+                <ul class="social-icons-list">
+                    <li><a href="https://revistaestamosentrend.com" target="_blank" rel="noopener noreferrer" aria-label="Sitio web de Revista EstamosEnTrend">
+                        <span class="social-icon web-icon">🌐</span> {/* Placeholder, reemplazar con SVG/FontAwesome */}
+                    </a></li>
+                    <li><a href="https://www.facebook.com/Revistaestamosentrend/" target="_blank" rel="noopener noreferrer" aria-label="Facebook de Revista EstamosEnTrend">
+                        <span class="social-icon facebook-icon">📘</span> {/* Placeholder */}
+                    </a></li>
+                    <li><a href="https://www.instagram.com/estamosentrend/" target="_blank" rel="noopener noreferrer" aria-label="Instagram de EstamosEnTrend">
+                        <span class="social-icon instagram-icon">📸</span> {/* Placeholder */}
+                    </a></li>
+                    <li><a href="https://www.tiktok.com/@estamosentrend" target="_blank" rel="noopener noreferrer" aria-label="TikTok de EstamosEnTrend">
+                        <span class="social-icon tiktok-icon">🎵</span> {/* Placeholder */}
+                    </a></li>
+                </ul>
+                 <div class="footer-switches">
+                    {/* Opcional: Switches de Idioma y Tema si se decide duplicarlos aquí */}
+                    {/* <button id="theme-switcher-footer" class="control-button theme-switch" aria-label="Cambiar tema">
+                        <span class="light-icon">☀️</span><span class="dark-icon">🌙</span>
+                    </button>
+                    <button id="lang-switcher-footer" class="control-button lang-switch" aria-label="Cambiar idioma">
+                        <span class="lang-icon lang-es">🇲🇽</span><span class="lang-icon lang-en" style="display:none;">🇬🇧</span>
+                    </button> */}
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>GUIATREND © by EstamosEnTrend 2023 – Todos los derechos reservados.</p>
+            <p><a href="#politica-privacidad">Política de Privacidad</a> | <a href="#terminos-uso">Términos de Uso</a></p>
+        </div>
+    </footer>
+
+    <!-- Botón Flotante de WhatsApp -->
+    <a href="https://wa.me/525665828832?text=Hola%2C%20necesito%20ayuda%20con%20GUIATREND."
+       class="whatsapp-float"
+       target="_blank"
+       rel="noopener noreferrer"
+       aria-label="Contactar por WhatsApp">
+       {/* Icono SVG de WhatsApp o emoji. Usaré emoji por simplicidad ahora */}
+       <span class="whatsapp-icon">🟢</span>
+    </a>
+
+    <script src="script.js"></script>
+</body>
+</html>

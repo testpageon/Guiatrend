@@ -1,0 +1,295 @@
+{
+  "config": {
+    "appName": "GUIATREND",
+    "version": "1.0.0",
+    "defaultLanguage": "es",
+    "contactEmail": "estamosentrend@gmail.com",
+    "contactPhone": "+52 56 6582 8832"
+  },
+  "destinations": [
+    {
+      "id": "mty",
+      "name": "Monterrey",
+      "images": {
+        "hero": "images/destinations/monterrey_hero.webp",
+        "thumbnail": "images/destinations/monterrey_thumb.webp"
+      },
+      "description_short": "La ciudad de las montañas.",
+      "categories": ["negocios", "gastronomia", "cultura"]
+    },
+    {
+      "id": "gdl",
+      "name": "Guadalajara",
+      "images": {
+        "hero": "images/destinations/guadalajara_hero.webp",
+        "thumbnail": "images/destinations/guadalajara_thumb.webp"
+      },
+      "description_short": "La perla tapatía, cuna del mariachi.",
+      "categories": ["cultura", "gastronomia", "eventos"]
+    },
+    {
+      "id": "cdmx",
+      "name": "Ciudad de México",
+      "images": {
+        "hero": "images/destinations/cdmx_hero.webp",
+        "thumbnail": "images/destinations/cdmx_thumb.webp"
+      },
+      "description_short": "Una metrópolis vibrante y llena de historia.",
+      "categories": ["cultura", "gastronomia", "museos", "eventos"]
+    },
+    {
+      "id": "cun",
+      "name": "Cancún",
+      "images": {
+        "hero": "images/destinations/cancun_hero.webp",
+        "thumbnail": "images/destinations/cancun_thumb.webp"
+      },
+      "description_short": "Playas paradisíacas y vida nocturna.",
+      "categories": ["playas", "turismo", "vida_nocturna"]
+    },
+    {
+      "id": "plq",
+      "name": "Palenque",
+      "images": {
+        "hero": "images/destinations/palenque_hero.webp",
+        "thumbnail": "images/destinations/palenque_thumb.webp"
+      },
+      "description_short": "Antiguas ruinas mayas en la selva.",
+      "categories": ["arqueologia", "cultura", "naturaleza"]
+    },
+    {
+      "id": "pv",
+      "name": "Puerto Vallarta",
+      "images": {
+        "hero": "images/destinations/pv_hero.webp",
+        "thumbnail": "images/destinations/pv_thumb.webp"
+      },
+      "description_short": "Encanto costero y arte.",
+      "categories": ["playas", "gastronomia", "arte"]
+    },
+    {
+      "id": "ver",
+      "name": "Veracruz",
+      "images": {
+        "hero": "images/destinations/veracruz_hero.webp",
+        "thumbnail": "images/destinations/veracruz_thumb.webp"
+      },
+      "description_short": "Historia, música y sabor jarocho.",
+      "categories": ["cultura", "gastronomia", "historia"]
+    }
+  ],
+  "categories": [
+    {"id": "destinos", "name_es": "Destinos", "icon": "📍"},
+    {"id": "gastronomia", "name_es": "Gastronomía", "icon": "🍔"},
+    {"id": "hospedaje", "name_es": "Hospedaje", "icon": "🏨"},
+    {"id": "servicios", "name_es": "Servicios", "icon": "🛠️"},
+    {"id": "eventos", "name_es": "Eventos", "icon": "🎉"},
+    {"id": "cartelera", "name_es": "Cartelera", "icon": "🎬"},
+    {"id": "promociones", "name_es": "Promociones", "icon": "🏷️"},
+    {"id": "directorio", "name_es": "Directorio", "icon": "💼"}
+  ],
+  "businesses": [
+    {
+      "id": "rest001",
+      "name": "El Sazón de la Abuela",
+      "category_id": "gastronomia",
+      "destination_id": "mty",
+      "address": "Calle Falsa 123, Monterrey",
+      "phone": "8112345678",
+      "rating": 4.5,
+      "price_range": "$$",
+      "hours": "09:00-22:00",
+      "images": ["images/businesses/rest001_1.webp", "images/businesses/rest001_2.webp"],
+      "tags": ["comida mexicana", "familiar", "terraza"]
+    },
+    {
+      "id": "bar001",
+      "name": "La Última Copa",
+      "category_id": "bares",
+      "destination_id": "gdl",
+      "address": "Av. Chapultepec Sur 507, Guadalajara",
+      "phone": "3312345679",
+      "rating": 4.2,
+      "price_range": "$$$",
+      "hours": "18:00-02:00",
+      "images": ["images/businesses/bar001_1.webp"],
+      "tags": ["coctelería", "música en vivo", "artesanal"]
+    },
+    {
+      "id": "hotel001",
+      "name": "Hotel Vista Hermosa CDMX",
+      "category_id": "hospedaje",
+      "destination_id": "cdmx",
+      "address": "Paseo de la Reforma 10, CDMX",
+      "phone": "5512345680",
+      "rating": 4.8,
+      "price_range": "$$$$",
+      "hours": "24/7",
+      "images": ["images/businesses/hotel001_1.webp", "images/businesses/hotel001_2.webp"],
+      "tags": ["lujo", "centro histórico", "vista panorámica", "pet-friendly"]
+    },
+    {
+      "id": "tour001",
+      "name": "Aventura Maya Cancún",
+      "category_id": "turismo",
+      "destination_id": "cun",
+      "address": "Zona Hotelera Km 10, Cancún",
+      "phone": "9981234567",
+      "rating": 4.9,
+      "price_range": "$$$",
+      "hours": "08:00-17:00",
+      "images": ["images/businesses/tour001_1.webp"],
+      "tags": ["snorkel", "ruinas mayas", "transporte incluido"]
+    },
+    {
+      "id": "serv001",
+      "name": "Lavandería Rápida PV",
+      "category_id": "servicios",
+      "destination_id": "pv",
+      "address": "Calle Morelos 234, Puerto Vallarta",
+      "phone": "3221234568",
+      "rating": 4.0,
+      "price_range": "$",
+      "hours": "09:00-19:00",
+      "images": ["images/businesses/serv001_1.webp"],
+      "tags": ["autoservicio", "entrega a domicilio"]
+    }
+  ],
+  "events": [
+    {
+      "id": "evt001",
+      "name_es": "Festival Internacional de Cine de Monterrey 2025",
+      "date_start": "2025-08-15",
+      "date_end": "2025-08-22",
+      "destination_id": "mty",
+      "venue_es": "Cintermex y sedes alternas",
+      "description_short_es": "Celebrando lo mejor del cine nacional e internacional.",
+      "image": "images/events/ficmty2025.webp",
+      "category_id": "eventos"
+    },
+    {
+      "id": "evt002",
+      "name_es": "Concierto 'Rock en tu Idioma Sinfónico' Guadalajara 2026",
+      "date_start": "2026-03-10",
+      "date_end": "2026-03-10",
+      "destination_id": "gdl",
+      "venue_es": "Auditorio Telmex",
+      "description_short_es": "Los grandes éxitos del rock en español con orquesta sinfónica.",
+      "image": "images/events/rocksinfonico_gdl2026.webp",
+      "category_id": "eventos"
+    }
+  ],
+  "billboard": [
+    {
+      "id": "cine001",
+      "title_es": "El Héroe Caído: Renacimiento (Película)",
+      "type_es": "Cine",
+      "genre_es": "Acción / Ciencia Ficción",
+      "release_date": "2025-12-05",
+      "description_short_es": "Un antiguo héroe debe volver para salvar al mundo de una nueva amenaza.",
+      "image": "images/billboard/heroe_caido.webp",
+      "duration_minutes": 140
+    },
+    {
+      "id": "stream001",
+      "title_es": "Misterios del Arrecife (Serie Documental)",
+      "type_es": "Streaming",
+      "platform_es": "TrendFlix+",
+      "genre_es": "Documental / Naturaleza",
+      "release_date": "2025-07-15",
+      "description_short_es": "Explora la increíble biodiversidad de los arrecifes de coral del mundo.",
+      "image": "images/billboard/misterios_arrecife.webp",
+      "seasons": 1,
+      "episodes_per_season": 8
+    },
+    {
+      "id": "sport001",
+      "title_es": "Gran Final Liga MX Clausura 2026",
+      "type_es": "Deportes",
+      "sport_es": "Fútbol",
+      "event_date": "2026-05-24",
+      "description_short_es": "El partido decisivo que coronará al campeón del fútbol mexicano.",
+      "image": "images/billboard/final_ligamx_2026.webp"
+    }
+  ],
+  "blog_posts": [
+    {
+      "id": "blog001",
+      "title_es": "Los 5 Mejores Tacos al Pastor de la CDMX",
+      "author_es": "Miguel Ángel Hernández Segura",
+      "date": "2024-03-01",
+      "category_id": "gastronomia",
+      "destination_id": "cdmx",
+      "summary_es": "Un recorrido por las taquerías imperdibles para los amantes del taco al pastor en la Ciudad de México.",
+      "content_es": "<p>La Ciudad de México es un paraíso para los amantes de la comida, y el taco al pastor es una de sus joyas culinarias...</p><p>Aquí te presentamos nuestra selección...</p>",
+      "image_hero": "images/blog/tacos_pastor_cdmx.webp",
+      "tags": ["tacos", "cdmx", "comida callejera", "gastronomia mexicana"]
+    },
+    {
+      "id": "blog002",
+      "title_es": "Guía Esencial para Visitar Chichén Itzá desde Cancún",
+      "author_es": "Laura Gómez",
+      "date": "2024-02-15",
+      "category_id": "turismo",
+      "destination_id": "cun",
+      "related_destination_id": "plq", // Podría ser un destino relacionado o una etiqueta de zona arqueológica general
+      "summary_es": "Todo lo que necesitas saber para planificar tu excursión a una de las Nuevas Siete Maravillas del Mundo.",
+      "content_es": "<p>Visitar Chichén Itzá es una experiencia inolvidable. Desde cómo llegar, qué llevar, hasta los mejores tours...</p>",
+      "image_hero": "images/blog/chichen_itza_guia.webp",
+      "tags": ["chichen itza", "cancun", "riviera maya", "arqueologia", "tips de viaje"]
+    }
+  ],
+  "faq": [
+    {
+      "id": "faq001",
+      "question_es": "¿Qué es GUIATREND?",
+      "answer_es": "GUIATREND es tu guía completa para explorar México. Ofrecemos un directorio comercial, información turística, cartelera de eventos, y mucho más para ayudarte a descubrir lo mejor de cada rincón del país."
+    },
+    {
+      "id": "faq002",
+      "question_es": "¿Cómo puedo encontrar un negocio específico?",
+      "answer_es": "Utiliza nuestra barra de búsqueda en la parte superior. Puedes buscar por nombre, categoría, ciudad, o incluso filtrar por servicios específicos para encontrar exactamente lo que necesitas."
+    },
+    {
+      "id": "faq003",
+      "question_es": "¿Es gratis usar GUIATREND?",
+      "answer_es": "Sí, el acceso a toda la información y funcionalidades de GUIATREND para usuarios es completamente gratuito. ¡Explora sin límites!"
+    },
+    {
+      "id": "faq004",
+      "question_es": "¿Cómo puedo registrar mi negocio en GUIATREND?",
+      "answer_es": "¡Nos encantaría tenerte! Visita nuestra sección '¿Tienes un negocio?' o contáctanos directamente a través de los medios proporcionados para conocer los pasos y beneficios."
+    },
+    {
+      "id": "faq005",
+      "question_es": "¿GUIATREND está disponible como aplicación móvil?",
+      "answer_es": "Actualmente GUIATREND es una Progressive Web App (PWA), lo que significa que puedes accederla desde cualquier dispositivo con un navegador web y disfrutar de una experiencia similar a una app nativa. ¡Incluso puedes añadirla a tu pantalla de inicio!"
+    }
+  ],
+  "site_text": {
+    "es": {
+        "nav_home": "Inicio",
+        "nav_destinations": "Destinos",
+        "nav_directory": "Directorio",
+        "nav_events": "Eventos",
+        "nav_billboard": "Cartelera",
+        "nav_blog": "Blog",
+        "nav_about": "Nosotros",
+        "nav_contact": "Contacto",
+        "dark_mode_label": "🌙",
+        "light_mode_label": "☀️"
+    },
+    "en": {
+        "nav_home": "Home",
+        "nav_destinations": "Destinations",
+        "nav_directory": "Directory",
+        "nav_events": "Events",
+        "nav_billboard": "Billboard",
+        "nav_blog": "Blog",
+        "nav_about": "About Us",
+        "nav_contact": "Contact",
+        "dark_mode_label": "🌙",
+        "light_mode_label": "☀️"
+    }
+  }
+}

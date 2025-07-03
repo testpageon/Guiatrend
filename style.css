@@ -1,0 +1,2077 @@
+/* ==========================================================================
+   Estilos Globales y Variables CSS
+   ========================================================================== */
+:root {
+    /* Paleta de Colores */
+    --color-folly: #FF004F; /* Rosa principal */
+    --color-white-soft: #FAF9F6; /* Blanco suave */
+    --color-dark-primary: #0a0f14; /* Negro profundo (para texto en modo claro, fondo en modo oscuro) */
+    --color-dark-secondary: #191e23; /* Gris oscuro (para elementos secundarios en modo oscuro) */
+    --color-light-secondary: #CDCDCD; /* Gris claro (para placeholders, texto secundario) */
+
+    /* Colores para Glassmorphism y Fondos */
+    --bg-glass-dark: rgba(10, 15, 20, 0.7); /* Fondo glass modo oscuro */
+    --bg-glass-light: rgba(250, 249, 246, 0.7); /* Fondo glass modo claro */
+    --bg-glass-button-dark: rgba(25, 30, 35, 0.7); /* Fondo botones glass modo oscuro */
+    --bg-glass-button-light: rgba(250, 249, 246, 0.7); /* Fondo botones glass modo claro */
+
+    /* Fuentes (Ejemplo, se pueden cambiar) */
+    --font-primary: 'Arial', sans-serif; /* Fuente principal para el cuerpo */
+    --font-headings: 'Helvetica Neue', sans-serif; /* Fuente para encabezados */
+    --font-logo: 'Arial', sans-serif; /* Fuente específica para el logo si es necesario */
+
+    /* Tamaños de Fuente */
+    --text-sm: 0.875rem; /* 14px */
+    --text-base: 1rem;    /* 16px */
+    --text-lg: 1.125rem; /* 18px */
+    --text-xl: 1.25rem;  /* 20px */
+    --text-2xl: 1.5rem;  /* 24px */
+    --text-3xl: 1.875rem;/* 30px */
+    --text-4xl: 2.25rem; /* 36px */
+
+    /* Bordes */
+    --border-radius-sm: 8px;
+    --border-radius-md: 16px;
+    --border-radius-lg: 24px;
+    --border-radius-full: 50%;
+
+    /* Transiciones */
+    --transition-smooth: all 0.3s ease-in-out;
+
+    /* Sombras */
+    --shadow-soft: 0 4px 12px rgba(0, 0, 0, 0.1);
+    --shadow-medium: 0 8px 16px rgba(0, 0, 0, 0.15);
+    --shadow-strong: 0 12px 24px rgba(0, 0, 0, 0.2);
+
+    /* Header specific */
+    --header-height: 70px;
+    --header-padding-y: 0.5rem;
+    --header-padding-x: 1rem;
+}
+
+/* Estilos base para el body y HTML */
+html {
+    box-sizing: border-box;
+    font-size: 16px; /* Base para REM */
+    scroll-behavior: smooth;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: var(--font-primary);
+    line-height: 1.6;
+    color: var(--color-dark-primary); /* Color de texto por defecto para modo claro */
+    background-color: var(--color-white-soft); /* Fondo por defecto para modo claro */
+    transition: background-color 0.3s ease, color 0.3s ease;
+    overflow-x: hidden; /* Evitar scroll horizontal no deseado */
+}
+
+/* Estilos para el modo oscuro */
+body.dark-mode {
+    color: var(--color-white-soft);
+    background-color: var(--color-dark-primary);
+}
+
+/* Clases de utilidad */
+.container {
+    width: 90%;
+    max-width: 1200px; /* Ajustar según necesidad */
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1rem; /* Espaciado base */
+    padding-right: 1rem; /* Espaciado base */
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: var(--header-height);
+    padding: var(--header-padding-y) 0; /* Padding vertical ya está en header, horizontal en container */
+}
+
+
+/* Estilos del Header */
+#main-header {
+    position: fixed; /* O sticky, según preferencia */
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    padding: var(--header-padding-y) 0;
+    /* El efecto glass se aplica con la clase .glass-effect */
+    border-radius: 0 0 var(--border-radius-md) var(--border-radius-md); /* Bordes redondeados solo abajo */
+}
+
+body.light-mode #main-header {
+    background: var(--bg-glass-light);
+}
+
+body.dark-mode #main-header {
+    background: var(--bg-glass-dark);
+}
+
+.logo {
+    font-size: var(--text-2xl); /* Tamaño del logo */
+    font-weight: bold;
+    font-family: var(--font-logo); /* Usar la variable de fuente para logo */
+}
+
+.logo a {
+    text-decoration: none;
+}
+
+.logo .logo-guia {
+    color: var(--color-white-soft); /* Blanco suave */
+}
+body.light-mode .logo .logo-guia {
+    color: var(--color-dark-primary); /* Negro en modo claro */
+}
+
+
+.logo .logo-trend {
+    color: var(--color-folly); /* Folly #FF004F */
+}
+
+/* Menú de Navegación Principal */
+.main-navigation {
+    display: flex;
+}
+
+.nav-list {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-item {
+    position: relative; /* Para el posicionamiento del submenú y el efecto burbuja */
+    margin-left: 1.5rem; /* Espacio entre elementos del menú */
+}
+
+.nav-link {
+    font-family: var(--font-headings);
+    margin-bottom: 0.75rem;
+    line-height: 1.2;
+}
+
+/* Footer */
+#main-footer {
+    padding: 3rem var(--header-padding-x) 2rem; /* Padding arriba, x, abajo */
+    /* .glass-effect se aplica desde HTML */
+    border-top-left-radius: var(--border-radius-lg); /* Redondeo superior */
+    border-top-right-radius: var(--border-radius-lg);
+    margin-top: 3rem; /* Espacio antes del footer */
+    box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.2); /* Sombra superior más pronunciada */
+}
+
+body.light-mode #main-footer {
+    background: var(--bg-glass-light);
+    /* box-shadow: 0 -2px 12px rgba(0, 0, 0, 0.1); */
+}
+body.dark-mode #main-footer {
+    background: var(--bg-glass-dark);
+}
+
+.footer-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Columnas responsivas */
+    gap: 2rem; /* Espacio entre columnas */
+    margin-bottom: 2rem; /* Espacio antes del .footer-bottom */
+}
+
+.footer-column {
+    /* Estilos comunes para las columnas si son necesarios */
+}
+
+.footer-heading {
+    font-size: var(--text-lg);
+    font-weight: bold;
+    color: var(--color-folly); /* Títulos del footer en Folly */
+    margin-bottom: 1rem;
+}
+body.dark-mode .footer-heading {
+    /* color: var(--color-white-soft); Si se prefiere blanco en modo oscuro */
+}
+
+.footer-contact p,
+.footer-contact a {
+    font-size: var(--text-sm);
+    line-height: 1.6;
+    margin-bottom: 0.4rem;
+    color: var(--color-dark-secondary);
+}
+body.dark-mode .footer-contact p,
+body.dark-mode .footer-contact a {
+    color: var(--color-light-secondary);
+}
+.footer-contact a:hover {
+    text-decoration: underline;
+    color: var(--color-folly);
+}
+.footer-subheading {
+    font-size: calc(var(--text-sm) * 1.1);
+    font-weight: bold;
+    margin-top: 0.8rem;
+    margin-bottom: 0.2rem;
+    color: var(--color-dark-primary);
+}
+body.dark-mode .footer-subheading {
+     color: var(--color-white-soft);
+}
+
+
+.footer-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.footer-list li {
+    margin-bottom: 0.5rem;
+}
+.footer-list li a {
+    text-decoration: none;
+    color: var(--color-dark-secondary);
+    font-size: var(--text-sm);
+    transition: color 0.2s ease, padding-left 0.2s ease;
+    position: relative; /* Para el hover de la burbuja */
+}
+body.dark-mode .footer-list li a {
+    color: var(--color-light-secondary);
+}
+
+/* Efecto hover burbuja para enlaces del footer */
+.footer-list li a:hover {
+    color: var(--color-folly);
+    padding-left: 5px; /* Pequeño desplazamiento */
+}
+.footer-list li a:hover::before {
+    content: '';
+    position: absolute;
+    left: -10px; /* Posición de la mini-burbuja */
+    top: 50%;
+    transform: translateY(-50%);
+    width: 6px;
+    height: 6px;
+    background-color: var(--color-folly);
+    border-radius: 50%;
+}
+
+
+.social-icons-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    gap: 1rem; /* Espacio entre iconos sociales */
+    flex-wrap: wrap; /* Para que se ajusten */
+}
+.social-icons-list li a {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: var(--bg-glass-button-dark); /* Fondo semitransparente */
+    color: var(--color-folly); /* Icono en Folly */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    font-size: var(--text-xl); /* Tamaño del icono/emoji */
+    transition: var(--transition-smooth);
+    position: relative;
+    overflow: hidden; /* Para el borde inferior */
+    border: 1px solid transparent; /* Borde inicial transparente */
+}
+body.light-mode .social-icons-list li a {
+    background-color: var(--bg-glass-button-light);
+    border-color: rgba(0,0,0,0.1);
+}
+body.dark-mode .social-icons-list li a {
+     border-color: rgba(255,255,255,0.15);
+}
+
+
+.social-icons-list li a::after { /* Borde inferior rosa en hover */
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%) scaleX(0);
+    width: 100%;
+    height: 3px;
+    background-color: var(--color-folly);
+    transition: transform 0.3s ease;
+}
+.social-icons-list li a:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-soft);
+    color: var(--color-white-soft); /* Para que el icono contraste con el fondo Folly */
+    background-color: var(--color-folly); /* Fondo Folly al hacer hover */
+}
+.social-icons-list li a:hover::after {
+    transform: translateX(-50%) scaleX(1);
+}
+
+/* Estilos para los switches opcionales en el footer si se añaden */
+.footer-switches {
+    margin-top: 1.5rem;
+    display: flex;
+    gap: 0.5rem;
+}
+.footer-switches .control-button { /* Reutilizar estilos de header */
+    width: 32px;
+    height: 32px;
+    font-size: var(--text-base);
+}
+
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 1.5rem;
+    margin-top: 1.5rem; /* Separador si las columnas no llenan el espacio */
+    border-top: 1px solid rgba(255,255,255,0.1); /* Línea separadora */
+    font-size: var(--text-sm);
+    color: var(--color-light-secondary);
+}
+body.light-mode .footer-bottom {
+    border-top: 1px solid rgba(0,0,0,0.1);
+    color: var(--color-dark-secondary);
+}
+.footer-bottom p {
+    margin-bottom: 0.25rem;
+}
+.footer-bottom a {
+    color: var(--color-folly);
+    text-decoration: none;
+}
+.footer-bottom a:hover {
+    text-decoration: underline;
+}
+
+/* Botón Flotante de WhatsApp */
+.whatsapp-float {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 55px;
+    height: 55px;
+    background-color: #25D366; /* Color oficial de WhatsApp */
+    color: var(--color-white-soft);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: var(--text-2xl); /* Tamaño del ícono */
+    text-decoration: none;
+    box-shadow: var(--shadow-medium);
+    z-index: 998; /* Debajo de modales pero encima de mucho contenido */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.whatsapp-float:hover {
+    transform: scale(1.1) translateY(-2px);
+    box-shadow: var(--shadow-strong);
+}
+.whatsapp-icon {
+    line-height: 1; /* Para alinear mejor el emoji */
+}
+
+
+/* Responsive para Footer */
+@media (max-width: 768px) {
+    .footer-container {
+        grid-template-columns: 1fr; /* Una columna en móvil/tablet */
+        text-align: center; /* Centrar contenido de columnas */
+    }
+    .footer-heading {
+        margin-top: 1rem; /* Espacio extra si se apilan */
+    }
+    .footer-column:first-child .footer-heading {
+        margin-top: 0;
+    }
+    .social-icons-list {
+        justify-content: center; /* Centrar iconos sociales */
+    }
+    .footer-switches {
+        justify-content: center; /* Centrar switches opcionales */
+    }
+}
+
+
+/* Más estilos se añadirán a medida que se construyan los componentes */
+h1, h2, h3, h4, h5, h6 {
+    margin-bottom: 0.75rem;
+    line-height: 1.2;
+}
+
+/* Sección Newsletter */
+#newsletter-section {
+    background-color: var(--color-dark-secondary); /* Fondo oscuro para esta sección */
+    /* O un color claro en modo claro: */
+    /* background-color: #f0f0f0; */
+}
+body.light-mode #newsletter-section {
+    background-color: #e9e9e9; /* Un gris claro para modo claro */
+}
+
+
+.newsletter-title {
+    font-size: var(--text-2xl);
+    font-weight: bold;
+    color: var(--color-white-soft); /* Texto blanco sobre fondo oscuro */
+    margin-bottom: 0.5rem;
+}
+body.light-mode .newsletter-title {
+    color: var(--color-dark-primary);
+}
+
+.newsletter-tagline {
+    font-size: var(--text-base);
+    color: var(--color-light-secondary); /* Texto gris claro sobre fondo oscuro */
+    margin-bottom: 1.5rem;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+}
+body.light-mode .newsletter-tagline {
+    color: var(--color-dark-secondary);
+}
+
+.newsletter-form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem; /* Espacio pequeño entre input y botón */
+    max-width: 500px; /* Ancho máximo del formulario */
+    margin: 0 auto; /* Centrar el formulario */
+}
+
+.newsletter-input {
+    flex-grow: 1; /* El input ocupa el espacio disponible */
+    padding: 0.85rem 1rem;
+    border: 1px solid var(--color-dark-primary); /* Borde oscuro en modo oscuro */
+    border-radius: var(--border-radius-md);
+    font-size: var(--text-base);
+    background-color: var(--color-white-soft); /* Fondo blanco para el input */
+    color: var(--color-dark-primary);
+    outline: none;
+    transition: border-color 0.3s ease;
+}
+.newsletter-input:focus {
+    border-color: var(--color-folly);
+    box-shadow: 0 0 0 2px rgba(255, 0, 79, 0.2);
+}
+body.light-mode .newsletter-input {
+    background-color: var(--color-white-soft);
+    border-color: var(--color-light-secondary);
+    color: var(--color-dark-primary);
+}
+body.light-mode .newsletter-input:focus {
+     border-color: var(--color-folly);
+}
+
+
+.btn-newsletter-submit {
+    padding: 0.85rem 1.5rem; /* Mismo padding vertical que el input */
+    background: linear-gradient(135deg, var(--color-folly) 0%, var(--color-white-soft) 100%);
+    color: var(--color-dark-primary); /* Texto oscuro para contraste */
+    font-weight: bold;
+    border: none; /* El gradiente es el borde */
+    border-radius: var(--border-radius-md);
+    cursor: pointer;
+    transition: var(--transition-smooth);
+    text-shadow: 0 1px 2px rgba(0,0,0,0.1);
+}
+.btn-newsletter-submit:hover {
+    opacity: 0.9;
+    transform: translateY(-1px);
+    box-shadow: var(--shadow-soft);
+}
+
+/* Clase para accesibilidad, ocultar visualmente pero disponible para screen readers */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+}
+
+
+/* Responsive para Newsletter */
+@media (max-width: 576px) {
+    .newsletter-form {
+        flex-direction: column; /* Apilar input y botón */
+        gap: 0.75rem;
+    }
+    .newsletter-input,
+    .btn-newsletter-submit {
+        width: 100%; /* Ocupar todo el ancho disponible */
+    }
+}
+
+
+/* Más estilos se añadirán a medida que se construyan los componentes */
+h1, h2, h3, h4, h5, h6 {
+    margin-bottom: 0.75rem;
+    line-height: 1.2;
+}
+
+/* ==========================================================================
+   Register Business Section
+   ========================================================================== */
+
+/* Sección ¿Tienes un negocio? */
+#register-business-section {
+    /* .container y .section-padding ya están aplicados */
+    /* El título .section-title ya tiene estilos generales, pero aquí usamos un título dentro de la tarjeta */
+}
+
+.register-business-card {
+    max-width: 700px; /* Ancho de la tarjeta */
+    margin: 0 auto; /* Centrar la tarjeta */
+    padding: 2.5rem;
+    text-align: center;
+    border-radius: var(--border-radius-lg); /* Bordes bien redondeados para la tarjeta */
+    /* .glass-effect se aplica desde HTML */
+}
+
+body.light-mode .register-business-card {
+    background: var(--bg-glass-button-light); /* Usar el mismo glass que los botones del header para consistencia */
+    /* backdrop-filter: blur(8px); Ya viene con glass-effect */
+}
+body.dark-mode .register-business-card {
+    background: var(--bg-glass-button-dark);
+}
+
+.register-business-card .card-title {
+    font-size: var(--text-3xl);
+    color: var(--color-folly); /* Título destacado en Folly */
+    margin-bottom: 0.75rem;
+}
+
+.register-business-card .card-tagline {
+    font-size: var(--text-lg);
+    margin-bottom: 1.5rem;
+    color: var(--color-dark-primary);
+}
+body.dark-mode .register-business-card .card-tagline {
+    color: var(--color-white-soft);
+}
+
+.contact-info-business {
+    margin-bottom: 2rem;
+    font-size: var(--text-base);
+}
+.contact-info-business p {
+    margin-bottom: 0.5rem;
+    color: var(--color-dark-secondary);
+}
+body.dark-mode .contact-info-business p {
+    color: var(--color-light-secondary);
+}
+.contact-info-business .contact-label {
+    font-weight: bold;
+}
+.contact-info-business a {
+    color: var(--color-folly); /* Enlaces de contacto en Folly */
+    text-decoration: underline;
+}
+.contact-info-business a:hover {
+    text-decoration: none;
+}
+
+
+.action-buttons-business {
+    display: flex;
+    flex-direction: row; /* Por defecto en fila */
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap; /* Para que se ajusten en pantallas pequeñas */
+}
+
+.action-buttons-business .btn {
+    padding: 0.75rem 1.25rem; /* Padding base para estos botones */
+    border-radius: var(--border-radius-md);
+    text-decoration: none;
+    font-weight: bold;
+    transition: var(--transition-smooth);
+    display: inline-flex; /* Para alinear ícono y texto */
+    align-items: center;
+    gap: 0.5rem; /* Espacio entre ícono y texto */
+    min-width: 200px; /* Ancho mínimo para que no se vean muy pequeños */
+    justify-content: center;
+}
+
+.action-buttons-business .btn-icon {
+    font-size: 1.2em; /* Ajustar tamaño de emojis/iconos */
+}
+
+/* Botón WhatsApp */
+.action-buttons-business .btn-whatsapp {
+    background-color: #25D366; /* Color oficial de WhatsApp */
+    color: var(--color-white-soft);
+    border: 1px solid #1DAA50;
+}
+.action-buttons-business .btn-whatsapp:hover {
+    background-color: #1DAA50;
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-soft);
+}
+
+/* Botón Email */
+.action-buttons-business .btn-email {
+    background-color: var(--color-folly);
+    color: var(--color-white-soft);
+    border: 1px solid #D90047; /* Un tono más oscuro de Folly */
+}
+.action-buttons-business .btn-email:hover {
+    background-color: #D90047;
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-soft);
+}
+
+/* Botón Ver Formulario de Contacto */
+.action-buttons-business .btn-contact-form {
+    background-color: transparent;
+    color: var(--color-folly);
+    border: 2px solid var(--color-folly);
+}
+body.dark-mode .action-buttons-business .btn-contact-form {
+    color: var(--color-white-soft);
+    border-color: var(--color-white-soft);
+}
+
+.action-buttons-business .btn-contact-form:hover {
+    background-color: var(--color-folly);
+    color: var(--color-white-soft);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-soft);
+}
+body.dark-mode .action-buttons-business .btn-contact-form:hover {
+    background-color: var(--color-white-soft);
+    color: var(--color-dark-primary);
+}
+
+
+/* Responsive para "¿Tienes un negocio?" */
+@media (max-width: 768px) {
+    .register-business-card {
+        padding: 2rem;
+    }
+    .register-business-card .card-title {
+        font-size: var(--text-2xl);
+    }
+    .register-business-card .card-tagline {
+        font-size: var(--text-base);
+    }
+    .action-buttons-business {
+        flex-direction: column; /* Apilar botones en tablet/móvil */
+    }
+    .action-buttons-business .btn {
+        width: 100%; /* Botones ocupan todo el ancho disponible */
+        max-width: 350px; /* Pero no demasiado anchos */
+    }
+}
+
+@media (max-width: 480px) {
+    .register-business-card {
+        padding: 1.5rem;
+    }
+     .action-buttons-business .btn {
+        font-size: var(--text-sm);
+        padding: 0.6rem 1rem;
+    }
+}
+
+
+/* Más estilos se añadirán a medida que se construyan los componentes */
+h1, h2, h3, h4, h5, h6 {
+    margin-bottom: 0.75rem;
+    line-height: 1.2;
+}
+
+/* ==========================================================================
+   FAQ Section
+   ========================================================================== */
+
+/* Sección FAQ */
+#faq-section {
+    /* .container y .section-padding ya están aplicados */
+}
+
+.faq-container {
+    max-width: 800px; /* Limitar el ancho para mejor legibilidad */
+    margin: 0 auto; /* Centrar el contenedor de FAQs */
+}
+
+.faq-item {
+    background-color: transparent; /* El fondo lo dará el modo o un contenedor padre si es glass */
+    border-bottom: 1px solid rgba(0,0,0,0.1); /* Separador sutil */
+    margin-bottom: 0.5rem;
+    border-radius: var(--border-radius-sm); /* Redondeo ligero si se quiere un borde completo */
+}
+body.dark-mode .faq-item {
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+.faq-item:last-child {
+    border-bottom: none;
+}
+
+.faq-question {
+    padding: 1rem 1.25rem;
+    font-size: var(--text-lg);
+    font-weight: bold;
+    cursor: pointer;
+    position: relative; /* Para el efecto burbuja y el marcador */
+    list-style: none; /* Ocultar marcador por defecto si se personaliza */
+    color: var(--color-dark-primary);
+    transition: color 0.2s ease;
+}
+body.dark-mode .faq-question {
+    color: var(--color-white-soft);
+}
+
+.faq-question::-webkit-details-marker { /* Ocultar marcador en Chrome/Safari */
+    display: none;
+}
+.faq-question::marker { /* Ocultar marcador en Firefox */
+   display: none; /* No siempre funciona, Firefox es más reacio */
+}
+
+/* Marcador personalizado (flecha) */
+.faq-question::after {
+    content: '▼'; /* Flecha hacia abajo por defecto */
+    position: absolute;
+    right: 1.25rem;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: var(--text-sm);
+    color: var(--color-folly);
+    transition: transform 0.3s ease;
+}
+
+.faq-item[open] > .faq-question::after {
+    transform: translateY(-50%) rotate(180deg); /* Flecha hacia arriba cuando está abierto */
+}
+
+/* Efecto Hover Burbuja para la pregunta */
+.faq-question .bubble-effect-container { /* Contenedor para el texto y la burbuja */
+    position: relative;
+    display: inline-block; /* Para que la burbuja se ajuste al texto */
+}
+.faq-question:hover {
+    color: var(--color-folly);
+}
+
+/* Aplicamos la burbuja al texto de la pregunta, no al summary completo */
+.faq-question:hover::before { /* Usamos ::before para la burbuja */
+    content: '';
+    position: absolute;
+    bottom: -5px; /* Posición de la burbuja */
+    left: 0; /* Inicia desde la izquierda del summary padding */
+    /* Ajustar left y width si solo se quiere bajo el texto y no todo el summary */
+    /* left: 50%; transform: translateX(-50%) scaleX(0); */
+    width: 100%; /* Ancho completo del summary */
+    height: 4px;
+    background: var(--color-folly);
+    border-radius: 50%;
+    /* animación */
+    /* opacity: 0; */ /* No necesitamos opacidad si escala desde 0 */
+    /* transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0.3s ease; */
+    animation: faqBubble 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+}
+/* Para evitar que la burbuja se muestre al cargar la página, la definimos solo en hover */
+/* Si se desea que la burbuja se quede en el elemento activo (open), se necesita JS o un estilo más complejo */
+
+@keyframes faqBubble {
+  0% { transform: scaleX(0); }
+  100% { transform: scaleX(1); }
+}
+
+
+.faq-answer {
+    padding: 0.5rem 1.25rem 1.25rem 1.25rem; /* Espaciado para la respuesta */
+    font-size: var(--text-base);
+    line-height: 1.6;
+    color: var(--color-dark-secondary);
+    background-color: rgba(0,0,0,0.02); /* Fondo muy sutil para la respuesta */
+    border-top: 1px solid rgba(0,0,0,0.05); /* Separador entre pregunta y respuesta */
+}
+body.dark-mode .faq-answer {
+    color: var(--color-light-secondary);
+    background-color: rgba(255,255,255,0.03);
+    border-top: 1px solid rgba(255,255,255,0.08);
+}
+.faq-answer p:last-child {
+    margin-bottom: 0;
+}
+
+/* Responsive para FAQ */
+@media (max-width: 576px) {
+    .faq-question {
+        font-size: var(--text-base);
+        padding: 0.75rem 1rem;
+    }
+    .faq-question::after { /* Marcador */
+        right: 1rem;
+    }
+    .faq-answer {
+        padding: 0.5rem 1rem 1rem 1rem;
+        font-size: var(--text-sm);
+    }
+}
+
+
+/* Más estilos se añadirán a medida que se construyan los componentes */
+h1, h2, h3, h4, h5, h6 {
+    margin-bottom: 0.75rem;
+    line-height: 1.2;
+}
+
+/* ==========================================================================
+   How It Works Section
+   ========================================================================== */
+
+/* Sección ¿Cómo Funciona? */
+#how-it-works-section {
+    /* .container y .section-padding ya están aplicados */
+    /* El título .section-title ya tiene estilos generales */
+}
+
+.how-it-works-container {
+    padding: 2rem; /* Padding interno para el contenedor glass */
+    border-radius: var(--border-radius-lg); /* Bordes más redondeados para el contenedor principal */
+    /* .glass-effect se aplica desde HTML */
+    /* Sombra suave ya viene con .glass-effect, se puede ajustar si es necesario */
+    /* box-shadow: var(--shadow-medium); */
+}
+
+body.light-mode .how-it-works-container {
+    background: rgba(250, 249, 246, 0.75); /* Ligeramente más opaco que el header */
+    backdrop-filter: blur(10px);
+}
+body.dark-mode .how-it-works-container {
+    background: rgba(10, 15, 20, 0.75); /* Ligeramente más opaco */
+    backdrop-filter: blur(10px);
+}
+
+.steps-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); /* 4 columnas en desktop, ajusta según necesidad */
+    gap: 2rem; /* Espacio entre los items de pasos */
+}
+
+.step-item {
+    text-align: center;
+    padding: 1rem; /* Espaciado interno para cada paso */
+    /* No necesitan su propio fondo glass si el contenedor principal ya lo tiene */
+}
+
+.step-icon {
+    font-size: var(--text-4xl); /* Tamaño grande para el ícono */
+    color: var(--color-folly);
+    margin-bottom: 1rem;
+    line-height: 1;
+}
+
+.step-title {
+    font-size: var(--text-xl);
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    color: var(--color-dark-primary); /* Texto claro por defecto en el prompt, pero ajusto a tema */
+}
+body.dark-mode .step-title {
+    color: var(--color-white-soft);
+}
+
+.step-description {
+    font-size: var(--text-base);
+    line-height: 1.5;
+    color: var(--color-dark-secondary);
+}
+body.dark-mode .step-description {
+    color: var(--color-light-secondary);
+}
+
+/* Responsive para Sección ¿Cómo Funciona? */
+@media (max-width: 992px) { /* Tablet */
+    .steps-grid {
+        grid-template-columns: repeat(2, 1fr); /* 2 columnas en tablet */
+        gap: 1.5rem;
+    }
+}
+
+@media (max-width: 576px) { /* Móvil */
+    .steps-grid {
+        grid-template-columns: 1fr; /* 1 columna en móvil */
+        gap: 1.5rem;
+    }
+    .how-it-works-container {
+        padding: 1.5rem;
+    }
+    .step-icon {
+        font-size: var(--text-3xl);
+    }
+    .step-title {
+        font-size: var(--text-lg);
+    }
+    .step-description {
+        font-size: var(--text-sm);
+    }
+}
+
+
+/* Más estilos se añadirán a medida que se construyan los componentes */
+h1, h2, h3, h4, h5, h6 {
+    margin-bottom: 0.75rem;
+    line-height: 1.2;
+}
+
+/* ==========================================================================
+   Categories Section
+   ========================================================================== */
+
+/* Sección de Categorías */
+#categories-section {
+    /* .container y .section-padding ya están aplicados */
+}
+
+.category-cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Ajusta minmax para el tamaño deseado de tarjeta */
+    gap: 1.5rem; /* Espacio entre tarjetas */
+}
+
+.category-card-link {
+    text-decoration: none;
+    color: inherit; /* Hereda el color del texto del body o de la tarjeta */
+    display: block; /* Para que el enlace ocupe toda la tarjeta */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-radius: var(--border-radius-md); /* Para que el hover/focus outline siga la forma */
+}
+.category-card-link:hover,
+.category-card-link:focus {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-medium); /* Sombra más pronunciada al hacer hover/focus */
+}
+.category-card-link:focus-visible { /* Estilo de foco visible claro */
+    outline: 2px solid var(--color-folly);
+    outline-offset: 2px;
+}
+
+
+.category-card {
+    padding: 1.5rem;
+    text-align: center;
+    border-radius: var(--border-radius-md); /* Ya definido en .glass-effect pero lo reforzamos */
+    /* .glass-effect se aplica desde HTML */
+    height: 100%; /* Para que todas las tarjetas en una fila tengan la misma altura si el contenido varía */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; /* Centrar contenido verticalmente */
+}
+
+body.light-mode .category-card {
+    background: var(--bg-glass-light);
+    /* border: 1px solid rgba(0,0,0,0.08); */ /* Ajustar borde si es necesario */
+}
+body.dark-mode .category-card {
+    background: var(--bg-glass-dark);
+    /* border: 1px solid rgba(255,255,255,0.12); */ /* Ajustar borde si es necesario */
+}
+
+.category-icon {
+    font-size: var(--text-3xl); /* Tamaño del ícono (emoji) */
+    color: var(--color-folly);
+    margin-bottom: 0.75rem;
+    line-height: 1; /* Para emojis */
+}
+
+.category-name {
+    font-size: var(--text-xl);
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    color: var(--color-dark-primary); /* Nombre de categoría en color principal del modo */
+}
+body.dark-mode .category-name {
+    color: var(--color-white-soft);
+}
+
+.category-description {
+    font-size: var(--text-sm);
+    color: var(--color-dark-secondary); /* Descripción en color secundario */
+    line-height: 1.4;
+}
+body.dark-mode .category-description {
+    color: var(--color-light-secondary);
+}
+
+
+/* Responsive para Sección de Categorías */
+@media (max-width: 768px) {
+    .category-cards-grid {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 1rem;
+    }
+    .category-card {
+        padding: 1.25rem;
+    }
+    .category-icon {
+        font-size: var(--text-2xl);
+    }
+    .category-name {
+        font-size: var(--text-lg);
+    }
+}
+
+@media (max-width: 480px) {
+    .category-cards-grid {
+        grid-template-columns: 1fr; /* Una columna en móviles muy pequeños */
+    }
+     .category-card-link:hover,
+    .category-card-link:focus { /* Desactivar elevación en hover en móviles si se prefiere */
+        transform: none;
+        /* box-shadow: var(--shadow-soft); */ /* Mantener sombra base */
+    }
+}
+
+
+/* Más estilos se añadirán a medida que se construyan los componentes */
+h1, h2, h3, h4, h5, h6 {
+    margin-bottom: 0.75rem;
+    line-height: 1.2;
+}
+
+/* Utilidades generales de sección */
+.section-padding {
+    padding-top: 3rem;
+}
+
+/* ==========================================================================
+   Search Section
+   ========================================================================== */
+
+/* Sección de Búsqueda */
+#search-section {
+    /* .container ya le da max-width y centrado */
+    padding-bottom: 3rem;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.section-title {
+    font-size: var(--text-3xl);
+    color: var(--color-folly);
+    margin-bottom: 2rem;
+    font-weight: bold;
+}
+body.dark-mode .section-title {
+    /* En modo oscuro, Folly puede ser muy brillante, considerar una alternativa o mantenerlo */
+    /* color: var(--color-white-soft); */
+}
+
+
+/* Sección de Búsqueda */
+#search-section {
+    /* .container ya le da max-width y centrado */
+}
+
+.search-bar-container {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    max-width: 700px; /* Ancho máximo de la barra de búsqueda */
+    margin: 0 auto 1.5rem auto; /* Centrada y con margen inferior */
+    border-radius: var(--border-radius-lg); /* Esquinas bien redondeadas */
+    padding: 0.5rem;
+    /* .glass-effect se aplica desde HTML */
+}
+
+body.light-mode .search-bar-container {
+    background: var(--bg-glass-light);
+    border: 1px solid rgba(0,0,0,0.1);
+}
+body.dark-mode .search-bar-container {
+    background: var(--bg-glass-dark);
+    border: 1px solid rgba(255,255,255,0.15);
+}
+
+#main-search-input {
+    flex-grow: 1;
+    padding: 0.75rem 1rem;
+    font-size: var(--text-base);
+    border: none;
+    background-color: transparent;
+    color: var(--color-dark-primary);
+    outline: none;
+}
+body.dark-mode #main-search-input {
+    color: var(--color-white-soft);
+}
+
+#main-search-input::placeholder {
+    color: var(--color-light-secondary);
+    opacity: 0.8;
+}
+body.dark-mode #main-search-input::placeholder {
+    color: rgba(250, 249, 246, 0.6);
+}
+
+.btn-search-icon {
+    padding: 0.5rem;
+    margin-left: 0.5rem;
+    color: var(--color-folly);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.btn-search-icon svg {
+    width: 28px; /* Tamaño del ícono de lupa */
+    height: 28px;
+}
+.btn-search-icon:hover {
+    opacity: 0.7;
+}
+
+/* Controles de Filtro */
+.filter-controls {
+    text-align: center; /* Centrar el botón de toggle */
+    margin-bottom: 2rem;
+}
+
+#toggle-filters-button {
+    /* Estilos para el botón que muestra/oculta filtros */
+    background-color: transparent;
+    border: 1px solid var(--color-folly);
+    color: var(--color-folly);
+    padding: 0.5rem 1rem;
+    border-radius: var(--border-radius-md);
+    font-size: var(--text-sm);
+}
+#toggle-filters-button:hover {
+    background-color: var(--color-folly);
+    color: var(--color-white-soft);
+}
+body.dark-mode #toggle-filters-button {
+    border-color: var(--color-white-soft);
+    color: var(--color-white-soft);
+}
+body.dark-mode #toggle-filters-button:hover {
+    background-color: var(--color-white-soft);
+    color: var(--color-dark-primary);
+}
+
+
+.filter-arrow {
+    display: inline-block;
+    transition: transform 0.3s ease;
+}
+#toggle-filters-button[aria-expanded="true"] .filter-arrow {
+    transform: rotate(180deg);
+}
+
+.advanced-filters {
+    margin-top: 1.5rem;
+    padding: 1.5rem;
+    border-radius: var(--border-radius-md);
+    background-color: rgba(0,0,0,0.03); /* Fondo sutil para los filtros */
+    display: grid; /* Usar grid para alinear filtros */
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Columnas responsivas */
+    gap: 1rem;
+    border: 1px solid rgba(0,0,0,0.05);
+}
+body.dark-mode .advanced-filters {
+    background-color: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.08);
+}
+
+.filter-group {
+    display: flex;
+    flex-direction: column;
+}
+.filter-group label {
+    font-size: var(--text-sm);
+    margin-bottom: 0.3rem;
+    font-weight: bold;
+    color: var(--color-dark-secondary);
+}
+body.dark-mode .filter-group label {
+    color: var(--color-white-soft);
+}
+
+.filter-group select,
+.filter-group input[type="text"],
+.filter-group input[type="number"] {
+    padding: 0.6rem;
+    border-radius: var(--border-radius-sm);
+    border: 1px solid var(--color-light-secondary);
+    background-color: var(--color-white-soft);
+    font-size: var(--text-base);
+    color: var(--color-dark-primary);
+}
+body.dark-mode .filter-group select,
+body.dark-mode .filter-group input[type="text"],
+body.dark-mode .filter-group input[type="number"] {
+    background-color: var(--color-dark-secondary);
+    border-color: rgba(255,255,255,0.2);
+    color: var(--color-white-soft);
+}
+
+.filter-actions {
+    grid-column: 1 / -1; /* Ocupa todo el ancho del grid */
+    display: flex;
+    justify-content: flex-end; /* Alinea botones a la derecha */
+    gap: 0.75rem;
+    margin-top: 1rem;
+}
+
+.btn-sm { /* Clase para botones más pequeños */
+    padding: 0.5rem 1rem;
+    font-size: var(--text-sm);
+}
+.btn-tertiary { /* Estilo para botón Limpiar */
+    background-color: var(--color-light-secondary);
+    color: var(--color-dark-primary);
+}
+.btn-tertiary:hover {
+    opacity: 0.8;
+}
+body.dark-mode .btn-tertiary {
+    background-color: var(--color-dark-secondary);
+    color: var(--color-white-soft);
+    border: 1px solid var(--color-light-secondary);
+}
+
+
+/* Lightbox de Resultados */
+.lightbox {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6); /* Fondo oscuro semitransparente */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1100; /* Encima de todo */
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+.lightbox.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.lightbox-content {
+    width: 90%;
+    max-width: 800px; /* Ancho máximo del lightbox */
+    max-height: 80vh; /* Altura máxima, permite scroll interno */
+    overflow-y: auto;
+    padding: 2rem;
+    border-radius: var(--border-radius-md);
+    position: relative;
+    transform: scale(0.95);
+    transition: transform 0.3s ease;
+    /* .glass-effect se aplica desde HTML */
+}
+.lightbox.active .lightbox-content {
+    transform: scale(1);
+}
+body.light-mode .lightbox-content {
+    background: var(--bg-glass-light);
+}
+body.dark-mode .lightbox-content {
+    background: var(--bg-glass-dark);
+}
+
+
+.lightbox-close {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    font-size: var(--text-2xl);
+    color: var(--color-dark-primary);
+    background: none;
+    border: none;
+    cursor: pointer;
+    line-height: 1;
+}
+body.dark-mode .lightbox-close {
+    color: var(--color-white-soft);
+}
+.lightbox-close:hover {
+    color: var(--color-folly);
+}
+
+.lightbox-title {
+    font-size: var(--text-2xl);
+    color: var(--color-folly);
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+.cards-grid { /* Para mostrar las tarjetas de resultados */
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+    min-height: 100px; /* Para que no colapse si está vacío inicialmente */
+}
+
+/* Estilo placeholder para tarjetas de negocio simples en lightbox */
+.business-card-simple {
+    background-color: rgba(255,255,255,0.05);
+    padding: 1rem;
+    border-radius: var(--border-radius-sm);
+    border: 1px solid rgba(255,255,255,0.1);
+    text-align: center;
+}
+body.light-mode .business-card-simple {
+    background-color: rgba(0,0,0,0.05);
+    border: 1px solid rgba(0,0,0,0.1);
+}
+.business-card-simple h4 {
+    font-size: var(--text-lg);
+    color: var(--color-folly);
+    margin-bottom: 0.5rem;
+}
+.business-card-simple p {
+    font-size: var(--text-sm);
+    margin-bottom: 0.75rem;
+}
+
+
+.lightbox-footer {
+    text-align: center;
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid rgba(255,255,255,0.1);
+}
+body.light-mode .lightbox-footer {
+    border-top: 1px solid rgba(0,0,0,0.1);
+}
+
+/* Responsive para Sección de Búsqueda */
+@media (max-width: 768px) {
+    .search-bar-container {
+        padding: 0.4rem;
+    }
+    #main-search-input {
+        padding: 0.6rem 0.8rem;
+        font-size: var(--text-sm);
+    }
+    .btn-search-icon svg {
+        width: 24px;
+        height: 24px;
+    }
+    .advanced-filters {
+        grid-template-columns: 1fr; /* Filtros en una sola columna */
+    }
+    .filter-actions {
+        justify-content: center; /* Centrar botones de filtro en móvil */
+    }
+}
+
+@media (max-width: 480px) {
+    .section-title {
+        font-size: var(--text-2xl);
+    }
+    .search-bar-container {
+        flex-direction: column; /* Input y botón en columna */
+        gap: 0.5rem;
+        padding: 0.8rem;
+    }
+    #main-search-input {
+        width: 100%;
+    }
+    .btn-search-icon {
+        width: 100%;
+        padding: 0.6rem;
+        background-color: var(--color-folly); /* Hacerlo más prominente */
+        color: var(--color-white-soft);
+        border-radius: var(--border-radius-sm);
+    }
+    .btn-search-icon svg {
+        fill: var(--color-white-soft);
+    }
+    .lightbox-content {
+        width: 95%;
+        padding: 1.5rem;
+    }
+    .lightbox-title {
+        font-size: var(--text-xl);
+    }
+}
+
+
+/* Más estilos se añadirán a medida que se construyan los componentes */
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-headings);
+    margin-bottom: 0.75rem;
+    line-height: 1.2;
+}
+
+/* Estilos Generales para Botones (si no existen ya) */
+.btn {
+    display: inline-block;
+}
+
+/* ==========================================================================
+   Hero Slider Section
+   ========================================================================== */
+
+/* Hero Slider Section */
+#hero-slider-section {
+    position: relative;
+    padding: 0.75rem 1.5rem;
+    border-radius: var(--border-radius-md);
+    font-family: var(--font-headings);
+    font-size: var(--text-base);
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    transition: var(--transition-smooth);
+    border: none;
+}
+
+/* Hero Slider Section */
+#hero-slider-section {
+    position: relative;
+    width: 100%;
+    height: 85vh; /* Altura del viewport, ajustar según diseño */
+    min-height: 400px; /* Altura mínima */
+    max-height: 700px; /* Altura máxima */
+    overflow: hidden; /* Para contener los slides */
+    margin-top: var(--header-height); /* Empujar debajo del header fijo */
+    background-color: var(--color-dark-secondary); /* Fondo mientras carga la imagen */
+}
+
+.hero-slider {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.slide {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.8s ease-in-out, visibility 0.8s ease-in-out;
+    display: flex; /* Para centrar contenido si es necesario */
+    align-items: center;
+    justify-content: center;
+}
+
+.slide.active {
+    opacity: 1;
+    visibility: visible;
+    z-index: 1; /* Slide activo por encima de otros */
+}
+
+.hero-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Cubre todo el contenedor sin deformar */
+    object-position: center; /* Centra la imagen */
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1; /* Detrás del contenido del slide */
+}
+
+/* Contenido superpuesto en el Hero Slider */
+.hero-content {
+    position: relative; /* Encima de la imagen */
+    z-index: 2;
+    text-align: center;
+    color: var(--color-white-soft);
+    padding: 2rem;
+    background: rgba(0, 0, 0, 0.4); /* Sutil overlay oscuro para legibilidad del texto */
+    border-radius: var(--border-radius-sm);
+    max-width: 80%;
+}
+body.light-mode .hero-content {
+    /* En modo claro, el texto podría necesitar ser oscuro si la imagen es muy clara */
+    /* O mantener el overlay oscuro para contraste */
+     color: var(--color-white-soft); /* Mantener blanco por ahora, ajustar si es necesario */
+}
+
+
+.hero-title {
+    font-family: var(--font-headings); /* Asegurar fuente moderna */
+    font-size: var(--text-4xl); /* Tamaño grande */
+    font-weight: bold;
+    margin-bottom: 0.75rem;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.7);
+    line-height: 1.1;
+}
+
+.hero-subtitle {
+    font-family: var(--font-primary); /* Fuente secundaria */
+    font-size: var(--text-lg); /* Tamaño mediano */
+    margin-bottom: 1.5rem;
+    max-width: 600px; /* Evitar que sea demasiado ancho */
+    margin-left: auto;
+    margin-right: auto;
+    text-shadow: 0 1px 6px rgba(0, 0, 0, 0.6);
+}
+
+.hero-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap; /* Para que los botones se ajusten en móvil */
+}
+
+/* Botón Explorar */
+.btn-explorar {
+    background: linear-gradient(90deg, var(--color-folly) 0%, var(--color-white-soft) 100%);
+    color: var(--color-dark-primary); /* Texto oscuro sobre gradiente claro */
+    padding: 0.8rem 2rem;
+    text-shadow: 0 0 5px rgba(0,0,0,0.2); /* Sombra suave para el texto */
+}
+.btn-explorar:hover {
+    background: linear-gradient(90deg, var(--color-folly) -10%, var(--color-white-soft) 90%);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+}
+
+/* Botón Cerca de mí */
+.btn-cerca-de-mi {
+    background-color: var(--bg-glass-button-dark); /* Similar a botones de header */
+    color: var(--color-white-soft);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(5px);
+    position: relative;
+    padding: 0.8rem 1.5rem;
+}
+body.light-mode .btn-cerca-de-mi {
+    background-color: var(--bg-glass-button-light);
+    color: var(--color-dark-primary);
+    border: 1px solid rgba(0, 0, 0, 0.15);
+}
+
+.btn-cerca-de-mi::after { /* Borde inferior rosa */
+    content: '';
+    position: absolute;
+    bottom: -3px;
+    left: 50%;
+    transform: translateX(-50%) scaleX(0);
+    width: 80%;
+    height: 3px;
+    background-color: var(--color-folly);
+    border-radius: 3px;
+    transition: transform 0.3s ease-out;
+}
+.btn-cerca-de-mi:hover::after {
+    transform: translateX(-50%) scaleX(1);
+}
+.btn-cerca-de-mi:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.location-icon {
+    color: var(--color-folly);
+    margin-right: 0.5rem;
+    font-size: 1.1em; /* Para que el emoji sea un poco más grande */
+}
+
+/* Indicadores de Posición del Slider */
+.slider-indicators {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 3; /* Encima del slide pero debajo de modales, etc. */
+    padding: 0.5rem 1rem;
+    border-radius: var(--border-radius-full); /* Para forma de píldora */
+    /* El efecto glass se aplica con .glass-effect */
+}
+
+body.light-mode .slider-indicators {
+    background: var(--bg-glass-light);
+}
+body.dark-mode .slider-indicators {
+    background: var(--bg-glass-dark);
+}
+
+.slider-indicators .indicator {
+    width: 10px;
+    height: 10px;
+    border-radius: var(--border-radius-full);
+    background-color: rgba(255, 255, 255, 0.5); /* Color base de indicador */
+    border: none;
+    margin: 0 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+body.light-mode .slider-indicators .indicator {
+    background-color: rgba(0, 0, 0, 0.3);
+}
+
+.slider-indicators .indicator.active {
+    background-color: var(--color-folly); /* Indicador activo */
+    transform: scale(1.3);
+}
+.slider-indicators .indicator:hover {
+    background-color: var(--color-white-soft);
+}
+body.light-mode .slider-indicators .indicator:hover {
+    background-color: var(--color-dark-primary);
+}
+
+
+/* Responsive para Hero Slider */
+@media (max-width: 768px) {
+    #hero-slider-section {
+        height: 75vh; /* Reducir altura en tablet/móvil */
+        min-height: 350px;
+    }
+
+    .hero-title {
+        font-size: var(--text-3xl); /* Reducir tamaño de fuente */
+    }
+
+    .hero-subtitle {
+        font-size: var(--text-base);
+        margin-bottom: 1rem;
+    }
+
+    .hero-content {
+        padding: 1.5rem;
+        max-width: 90%;
+    }
+
+    .btn-explorar, .btn-cerca-de-mi {
+        padding: 0.6rem 1.2rem;
+        font-size: calc(var(--text-base) * 0.9);
+    }
+
+    .slider-indicators {
+        bottom: 15px;
+        padding: 0.4rem 0.8rem;
+    }
+    .slider-indicators .indicator {
+        width: 8px;
+        height: 8px;
+        margin: 0 4px;
+    }
+}
+
+@media (max-width: 480px) {
+    #hero-slider-section {
+        height: 65vh;
+        min-height: 300px;
+    }
+    .hero-title {
+        font-size: var(--text-2xl);
+    }
+    .hero-subtitle {
+        font-size: var(--text-sm);
+    }
+    .hero-buttons {
+        gap: 0.5rem; /* Menor espacio entre botones */
+    }
+     .btn-explorar, .btn-cerca-de-mi {
+        width: calc(100% - 1rem); /* Botones apilados ocupando más ancho */
+        margin-bottom: 0.5rem;
+    }
+    .btn-explorar:last-child, .btn-cerca-de-mi:last-child {
+        margin-bottom: 0;
+    }
+}
+
+
+/* Más estilos se añadirán a medida que se construyan los componentes */
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-headings);
+    text-decoration: none;
+    color: var(--color-white-soft); /* Color de texto en modo oscuro */
+    padding: 0.5rem 0.75rem;
+    border-radius: var(--border-radius-md); /* Bordes redondeados para cada item */
+    transition: var(--transition-smooth);
+    position: relative; /* Para el pseudo-elemento ::after */
+    overflow: hidden; /* Para contener la burbuja */
+}
+
+body.light-mode .nav-link {
+    color: var(--color-dark-primary); /* Color de texto en modo claro */
+}
+
+.nav-link:hover,
+.nav-link.active { /* La clase .active se puede añadir con JS al item actual */
+    color: var(--color-folly); /* Color al hacer hover o si está activo */
+}
+
+/* Efecto Hover Burbuja */
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: -5px; /* Posición inicial de la burbuja */
+    left: 50%;
+    transform: translateX(-50%) scaleX(0); /* Inicia escalado a 0 */
+    width: 100%; /* Ancho completo del item */
+    height: 5px;
+    background: var(--color-folly);
+    border-radius: 50%; /* Hace que los extremos sean curvos, creando la forma de burbuja horizontal */
+    opacity: 0;
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0.3s ease; /* Transición suave para transform y opacidad */
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+    transform: translateX(-50%) scaleX(1); /* Escala a 1 para mostrar */
+    opacity: 1;
+}
+
+
+/* Submenús */
+.has-submenu {
+    position: relative;
+}
+
+.submenu {
+    list-style: none;
+    position: absolute;
+    top: 100%; /* Debajo del item padre */
+    left: 0;
+    min-width: 200px; /* Ancho mínimo del submenú */
+    background-color: var(--bg-glass-dark); /* Fondo glass para submenú */
+    border-radius: var(--border-radius-sm);
+    padding: 0.5rem 0;
+    margin-top: 0.5rem; /* Pequeño espacio entre item padre y submenú */
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px);
+    transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s;
+    z-index: 100;
+    backdrop-filter: blur(5px); /* Menor blur para submenús si se desea */
+    box-shadow: var(--shadow-medium);
+}
+
+body.light-mode .submenu {
+    background-color: var(--bg-glass-light);
+}
+
+.has-submenu:hover > .submenu,
+.has-submenu:focus-within > .submenu { /* Para accesibilidad con teclado */
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.submenu-item {
+    /* No se necesita mucho estilo aquí si los links lo manejan */
+}
+
+.submenu-link {
+    display: block;
+    padding: 0.5rem 1rem;
+    color: var(--color-white-soft);
+    text-decoration: none;
+    font-size: var(--text-sm);
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+body.light-mode .submenu-link {
+    color: var(--color-dark-primary);
+}
+
+.submenu-link:hover {
+    background-color: var(--color-folly);
+    color: var(--color-white-soft) !important; /* Asegurar que el texto sea blanco sobre fondo Folly */
+}
+
+
+/* Controles del Header (Switches) */
+.header-controls {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem; /* Espacio entre botones de control */
+}
+
+.control-button {
+    background: var(--bg-glass-button-dark); /* Fondo glass */
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: var(--color-white-soft);
+    width: 36px; /* Tamaño circular */
+    height: 36px;
+    border-radius: var(--border-radius-full); /* Circular */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: var(--transition-smooth);
+    font-size: var(--text-lg); /* Tamaño del ícono/texto dentro */
+    backdrop-filter: blur(5px);
+    box-shadow: var(--shadow-soft);
+}
+
+body.light-mode .control-button {
+    background: var(--bg-glass-button-light);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    color: var(--color-dark-primary);
+}
+
+.control-button:hover {
+    transform: scale(1.1);
+    box-shadow: var(--shadow-medium);
+}
+
+/* Estilos específicos para cada switch */
+.theme-switch .dark-icon {
+    display: none; /* Ocultar icono de luna en modo claro */
+}
+body.dark-mode .theme-switch .light-icon {
+    display: none; /* Ocultar icono de sol en modo oscuro */
+}
+body.dark-mode .theme-switch .dark-icon {
+    display: inline; /* Mostrar icono de luna en modo oscuro */
+}
+
+.login-switch .profile-icon-offline {
+    width: 18px;
+    height: 18px;
+    background-color: var(--color-light-secondary); /* Gris claro */
+    border-radius: var(--border-radius-full);
+    display: inline-block;
+}
+.login-switch.active .profile-icon-offline { /* Simular estado logeado */
+    background-color: var(--color-folly); /* Color Folly cuando está activo */
+}
+
+
+.lang-switch .lang-icon {
+    font-size: var(--text-base); /* Ajustar tamaño de bandera si es emoji */
+}
+/* Lógica para mostrar la bandera correcta se manejará con JS */
+
+
+/* Botón Hamburguesa (Nav Toggle) */
+.nav-toggle-button {
+    display: none; /* Oculto en desktop */
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+    z-index: 1001; /* Encima del nav */
+}
+
+.nav-toggle-button span {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background-color: var(--color-white-soft); /* Color de las barras */
+    margin: 5px 0;
+    border-radius: 3px;
+    transition: var(--transition-smooth);
+}
+body.light-mode .nav-toggle-button span {
+    background-color: var(--color-dark-primary);
+}
+
+
+/* Responsive Design para el Header */
+@media (max-width: 992px) { /* Punto de quiebre para menú hamburguesa (ajustar según necesidad) */
+    .main-navigation {
+        position: fixed;
+        top: 0;
+        right: -100%; /* Inicia fuera de la pantalla */
+        width: 70%; /* Ancho del menú lateral */
+        max-width: 300px;
+        height: 100vh;
+        background-color: var(--bg-glass-dark); /* Fondo del menú lateral */
+        backdrop-filter: blur(10px);
+        padding-top: calc(var(--header-height) + 1rem); /* Espacio para el header */
+        flex-direction: column;
+        align-items: flex-start; /* Alinea items a la izquierda */
+        transition: right 0.35s ease-in-out;
+        box-shadow: -5px 0 15px rgba(0,0,0,0.2);
+        z-index: 999; /* Debajo del toggle pero encima del contenido */
+    }
+
+    body.light-mode .main-navigation {
+        background-color: var(--bg-glass-light);
+    }
+
+    .main-navigation.active {
+        right: 0; /* Muestra el menú */
+    }
+
+    .nav-list {
+        flex-direction: column;
+        width: 100%;
+        align-items: flex-start; /* Alinea texto a la izquierda */
+    }
+
+    .nav-item {
+        width: 100%;
+        margin-left: 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* Separador entre items */
+    }
+    body.light-mode .nav-item {
+        border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    }
+    .nav-item:last-child {
+        border-bottom: none;
+    }
+
+    .nav-link {
+        display: block; /* Ocupa todo el ancho */
+        padding: 1rem 1.5rem; /* Mayor padding para touch */
+        width: 100%;
+        border-radius: 0; /* Quitar bordes redondeados individuales */
+    }
+    .nav-link::after { /* Ocultar burbuja en móvil o rediseñar si es necesario */
+        display: none;
+    }
+
+    .submenu { /* Ajuste de submenús en móvil */
+        position: static; /* No absoluto */
+        width: 100%;
+        background-color: transparent; /* Hereda del nav principal */
+        box-shadow: none;
+        padding-left: 1.5rem; /* Indentación para subitems */
+        opacity: 1;
+        visibility: visible;
+        transform: none;
+        display: none; /* Ocultos por defecto, se muestran al hacer clic/tocar el padre */
+        margin-top: 0;
+        border-top: 1px solid rgba(255, 255, 255, 0.05);
+    }
+    body.light-mode .submenu {
+        border-top: 1px solid rgba(0, 0, 0, 0.05);
+    }
+
+    .has-submenu:hover > .submenu,
+    .has-submenu:focus-within > .submenu {
+        /* En móvil, el hover no es ideal, se necesitará JS para toggle */
+    }
+    .has-submenu.open > .submenu { /* Clase 'open' añadida por JS para mostrar */
+        display: block;
+    }
+
+
+    .submenu-link {
+        padding: 0.75rem 1.5rem;
+        padding-left: 2.5rem; /* Mayor indentación */
+    }
+
+    .nav-toggle-button {
+        display: block; /* Mostrar botón hamburguesa */
+    }
+
+    /* Animación para el botón hamburguesa (transformar a X) */
+    .nav-toggle-button.active span:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+    }
+    .nav-toggle-button.active span:nth-child(2) {
+        opacity: 0;
+    }
+    .nav-toggle-button.active span:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+    }
+
+    .header-controls {
+        /* Ajustar el orden o visibilidad de los controles si es necesario en móvil */
+        /* Por ejemplo, mover el switch de idioma al menú lateral */
+    }
+}
+
+@media (max-width: 480px) {
+    .logo {
+        font-size: var(--text-xl); /* Reducir tamaño del logo en pantallas muy pequeñas */
+    }
+    .header-controls {
+        gap: 0.5rem; /* Reducir espacio entre controles */
+    }
+    .control-button {
+        width: 32px;
+        height: 32px;
+        font-size: var(--text-base);
+    }
+}
+
+
+/* Más estilos se añadirán a medida que se construyan los componentes */
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-headings);
+    margin-bottom: 0.75rem;
+    line-height: 1.2;
+}
+
+a {
+    text-decoration: none;
+    color: var(--color-folly);
+    transition: var(--transition-smooth);
+}
+
+a:hover {
+    opacity: 0.8;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+button {
+    font-family: inherit;
+    cursor: pointer;
+    border: none;
+    background-color: transparent;
+}
+
+ul {
+    list-style: none;
+}
+
+/* Estilos para Glassmorphism */
+.glass-effect {
+    background: rgba(255, 255, 255, 0.1); /* Color base, se ajustará por modo */
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px); /* Para Safari */
+    border-radius: var(--border-radius-md);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    box-shadow: var(--shadow-soft);
+}
+
+body.light-mode .glass-effect {
+    background: var(--bg-glass-light);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+body.dark-mode .glass-effect {
+    background: var(--bg-glass-dark);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* ==========================================================================
+   Header
+   ========================================================================== */

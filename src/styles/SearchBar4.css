@@ -1,0 +1,356 @@
+/* SearchBar4.css - BARRA DE BÚSQUEDA UNIFICADA */
+
+/* Contenedor principal de la barra de búsqueda */
+.search-container {
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 1rem; /* p-4 */
+  border-radius: 0.75rem; /* rounded-lg */
+  background-color: rgba(255, 255, 255, 0.15); /* Fondo translúcido estilo vidrio esmerilado */
+  backdrop-filter: blur(10px); /* Efecto de desenfoque */
+  -webkit-backdrop-filter: blur(10px); /* Soporte para Safari */
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+  box-sizing: border-box;
+  overflow: visible;
+}
+
+/* Barra de búsqueda */
+.search-bar {
+  display: flex;
+  align-items: center;
+  gap: 1rem; /* gap-4 */
+  flex-wrap: nowrap; /* flex-nowrap */
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Formulario - Layout interno con flex */
+.search-form {
+  display: flex;
+  align-items: center; /* items-center */
+  gap: 1rem; /* gap-4 */
+  width: 100%;
+  flex-wrap: nowrap; /* flex-nowrap */
+  box-sizing: border-box;
+}
+
+/* Campo de búsqueda */
+.search-input-group {
+  display: flex;
+  align-items: center;
+  flex: 1; /* Distribución uniforme */
+  min-width: 300px; /* Aumentado de 200px a 300px */
+  max-width: 450px; /* Aumentado de 300px a 450px */
+  padding: 0.75rem 1rem; /* py-3 px-4 */
+  border: 1px solid rgba(255, 255, 255, 0.2); /* Borde claro para contraste */
+  border-radius: 6px;
+  background: rgba(25, 30, 35, 0.7); /* Modo oscuro */
+  transition: all 0.2s ease;
+  height: 48px; /* h-full */
+  min-height: 48px; /* min-h-[48px] */
+  box-sizing: border-box;
+}
+
+.search-input-group:focus-within {
+  border-color: #ff004f;
+  background: rgba(25, 30, 35, 0.8); /* Modo oscuro más intenso al enfocar */
+  box-shadow: 0 0 0 3px rgba(255, 0, 79, 0.1);
+}
+
+.search-icon {
+  color: rgba(255, 255, 255, 0.8); /* Icono claro */
+  margin-right: 0.75rem; /* mr-3 */
+  font-size: 1.125rem; /* text-lg */
+  flex-shrink: 0;
+}
+
+.search-input {
+  flex: 1;
+  border: none;
+  background: transparent;
+  font-size: 1rem; /* text-base */
+  padding: 0;
+  outline: none;
+  color: white; /* Texto blanco */
+  box-sizing: border-box;
+  height: 100%;
+  min-width: 0; /* Permitir que se encoja */
+}
+
+.search-input::placeholder {
+  color: rgba(255, 255, 255, 0.6); /* Placeholder semi-transparente */
+}
+
+.clear-button {
+  background: none;
+  border: none;
+  color: rgba(255, 255, 255, 0.6); /* Color semi-transparente */
+  cursor: pointer;
+  padding: 0.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color 0.2s;
+  flex-shrink: 0;
+  outline: none;
+}
+
+.clear-button:hover {
+  color: #ff004f;
+}
+
+/* Grupos de select */
+.select-group {
+  display: flex;
+  align-items: center;
+  flex: 1; /* Distribución uniforme */
+  min-width: 280px; /* Aumentado significativamente de 200px a 280px */
+  max-width: 350px; /* Aumentado de 280px a 350px */
+  padding: 0.75rem 1rem; /* py-3 px-4 */
+  border: 1px solid rgba(255, 255, 255, 0.2); /* Borde claro para contraste */
+  border-radius: 6px;
+  background: rgba(25, 30, 35, 0.7); /* Modo oscuro */
+  transition: all 0.2s ease;
+  height: 48px; /* h-full */
+  min-height: 48px; /* min-h-[48px] */
+  box-sizing: border-box;
+  position: relative;
+}
+
+.select-group:hover {
+  border-color: #ff004f;
+  background: rgba(25, 30, 35, 0.8); /* Modo oscuro más intenso al hover */
+}
+
+.select-icon {
+  color: rgba(255, 255, 255, 0.8); /* Icono claro */
+  margin-right: 0.75rem; /* mr-3 */
+  font-size: 1rem; /* text-base */
+  flex-shrink: 0;
+}
+
+.select-input {
+  flex: 1;
+  border: none;
+  background: transparent;
+  font-size: 1rem; /* text-base */
+  padding: 0;
+  outline: none;
+  color: white; /* Texto blanco */
+  cursor: pointer;
+  box-sizing: border-box;
+  height: 100%;
+  min-width: 0; /* Permitir que se encoja */
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6,9 12,15 18,9'%3e%3c/polyline%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: right 8px center;
+  background-size: 16px;
+  padding-right: 32px;
+}
+
+.select-input:focus {
+  outline: none;
+}
+
+/* Cambiar el color azul de selección por Folly */
+.select-input:focus {
+  border-color: #ff004f;
+  box-shadow: 0 0 0 3px rgba(255, 0, 79, 0.1);
+}
+
+.select-input option {
+  background: rgba(25, 30, 35, 0.95); /* Modo oscuro para dropdown */
+  color: white; /* Texto blanco */
+  padding: 12px 16px; /* Mismo padding que dropdown del header */
+  border-radius: 16px; /* Mismo border-radius que dropdown del header */
+  font-weight: bold; /* Misma fuente en negritas que dropdown del header */
+  white-space: nowrap; /* Mismo white-space que dropdown del header */
+  overflow: hidden;
+  text-overflow: ellipsis;
+  backdrop-filter: blur(10px); /* Mismo blur que dropdown del header */
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.4); /* Mismo borde que dropdown del header */
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2); /* Mismo box-shadow que dropdown del header */
+}
+
+.select-input option:hover {
+  background-color: rgba(25, 30, 35, 1); /* Modo oscuro más intenso al hover */
+  color: #ff004f; /* Color Folly al hover */
+}
+
+.select-input option:checked {
+  background-color: #ff004f; /* Color Folly para opción seleccionada */
+  color: white;
+}
+
+/* Botón Aplicar */
+.search-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem; /* gap-2 */
+  background: #ff004f;
+  color: white;
+  border: none;
+  padding: 0 1.5rem; /* Aumentado de 0.75rem a 1.5rem */
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 1rem; /* text-base */
+  cursor: pointer;
+  transition: all 0.2s ease;
+  flex-shrink: 0; /* flex-shrink-0 */
+  box-sizing: border-box;
+  white-space: nowrap;
+  margin: 0;
+  min-width: 140px; /* Aumentado de 100px a 140px */
+  max-width: 160px; /* Aumentado de 120px a 160px */
+  height: 48px; /* h-full */
+  min-height: 48px; /* min-h-[48px] */
+  outline: none;
+}
+
+.search-button:hover {
+  background: #e0003f;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(255, 0, 79, 0.3);
+}
+
+.search-button:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(255, 0, 79, 0.3);
+}
+
+/* Desktop - Una sola línea */
+@media (min-width: 768px) {
+  .search-form {
+    flex-wrap: nowrap; /* flex-nowrap */
+    gap: 1rem; /* gap-4 */
+  }
+  
+  .search-input-group {
+    flex: 1;
+    min-width: 200px;
+  }
+  
+  .select-group {
+    flex: 1;
+    min-width: 140px;
+  }
+  
+  .search-button {
+    flex-shrink: 0; /* flex-shrink-0 */
+    min-width: 100px;
+  }
+}
+
+/* Mobile - Flex wrap */
+@media (max-width: 767px) {
+  .search-container {
+    padding: 0.75rem;
+  }
+
+  .search-bar {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .search-form {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .search-input-group {
+    min-width: auto;
+    max-width: none;
+    width: 100%;
+    min-height: 48px; /* Garantizar área táctil mínima */
+  }
+
+  .select-group {
+    min-width: auto;
+    max-width: none;
+    width: 100%;
+    min-height: 48px; /* Garantizar área táctil mínima */
+  }
+
+  .search-button {
+    width: 100%;
+    min-height: 48px; /* Garantizar área táctil mínima */
+    padding: 0.75rem 1rem;
+  }
+}
+
+/* Responsive adicional */
+@media (max-width: 480px) {
+  .search-container {
+    padding: 0.5rem;
+  }
+
+  .search-bar {
+    gap: 0.5rem;
+  }
+
+  .search-form {
+    gap: 0.5rem;
+  }
+
+  .search-input-group,
+  .select-group {
+    min-height: 44px; /* Área táctil mínima para pantallas muy pequeñas */
+    padding: 0.625rem 0.875rem;
+  }
+
+  .search-button {
+    min-height: 44px; /* Área táctil mínima para pantallas muy pequeñas */
+    padding: 0.625rem 0.875rem;
+    font-size: 0.9rem;
+  }
+}
+
+.custom-options {
+  position: absolute;
+  bottom: calc(100% + 4px);
+  left: 0;
+  width: 100%;
+  background: rgba(25, 30, 35, 0.95); /* Modo oscuro */
+  border-radius: 16px; /* Mismo border-radius que dropdown del header */
+  z-index: 9999;
+  overflow: visible;
+  border: 1px solid rgba(255, 255, 255, 0.4); /* Mismo borde que dropdown del header */
+  box-sizing: border-box;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2); /* Mismo box-shadow que dropdown del header */
+  backdrop-filter: blur(10px); /* Mismo blur que dropdown del header */
+  -webkit-backdrop-filter: blur(10px);
+  padding: 10px 0; /* Mismo padding que dropdown del header */
+  min-width: 160px; /* Mismo min-width que dropdown del header */
+  max-width: 200px; /* Mismo max-width que dropdown del header */
+}
+
+.custom-option {
+  padding: 12px 16px; /* Mismo padding que dropdown del header */
+  color: white; /* Texto blanco */
+  cursor: pointer;
+  transition: background-color 0.3s ease; /* Misma transición que dropdown del header */
+  font-size: 1rem; /* Mismo tamaño que dropdown del header */
+  box-sizing: border-box;
+  outline: none;
+  border-radius: 16px; /* Mismo border-radius que dropdown del header */
+  font-weight: bold; /* Misma fuente en negritas que dropdown del header */
+  white-space: nowrap; /* Mismo white-space que dropdown del header */
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.custom-option:hover {
+  background-color: rgba(255, 255, 255, 0.1); /* Fondo claro sutil al hover */
+  color: #ff004f; /* Color Folly al hover */
+}
+
+.custom-option.selected {
+  background-color: #ff004f; /* Color Folly para opción seleccionada */
+  color: white;
+} 

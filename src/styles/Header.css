@@ -1,0 +1,473 @@
+/* src/styles/Header.css */
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 18px;
+  position: fixed; /* Fijado en la parte superior */
+  width: 100%;
+  max-width: 100vw;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+  overflow-x: auto;
+  box-sizing: border-box;
+  overflow: visible;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.header.dark {
+  background: rgba(25, 30, 35, 0.7);
+  border: 1px solid rgba(25, 30, 35, 0.8);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.header.light {
+  background: rgba(250, 249, 246, 0.7);
+  border: 1px solid rgba(250, 249, 246, 0.8);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.logo {
+  font-size: 1.8em;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  white-space: nowrap;
+}
+
+.logo-guia {
+  color: var(--color-white-soft);
+}
+
+.logo-trend {
+  color: var(--color-folly);
+  margin-left: 5px;
+}
+
+.main-nav {
+  position: relative;
+  z-index: 100;
+  overflow: visible;
+}
+
+.main-nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  white-space: normal;
+  max-width: 100vw;
+  gap: 0.5rem;
+}
+
+.main-nav li {
+  position: relative;
+  margin: 0 8px;
+  flex-shrink: 0;
+}
+
+.main-nav a {
+  color: inherit;
+  text-decoration: none;
+  padding: 8px 0;
+  display: flex; /* Para alinear icono y texto */
+  align-items: center;
+  position: relative;
+  transition: color 0.3s ease;
+  border-radius: 16px; /* Bordes redondeados para elementos del menú */
+  font-weight: bold; /* Fuente en negritas */
+  white-space: nowrap;
+}
+
+.main-nav a:hover {
+  color: var(--color-folly);
+}
+
+
+/* Efecto Hover de burbuja */
+.menu-item::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 50%;
+  transform: translateX(-50%) scale(0); /* Inicialmente invisible */
+  width: 100%;
+  height: 5px;
+  background: var(--color-folly);
+  border-radius: 50%;
+  opacity: 0;
+  transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+}
+
+.menu-item:hover::after {
+  transform: translateX(-50%) scale(1);
+  opacity: 1;
+}
+
+/* Dropdown Menu */
+.dropdown > .menu-item {
+  position: relative;
+  z-index: 101;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  min-width: 160px;
+  max-width: 220px;
+  background: rgba(25, 30, 35, 0.95); /* Igual que los filtros del SearchBar */
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 9999;
+  border-radius: 16px;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  padding: 10px 0;
+  overflow: visible;
+}
+
+.dropdown-content a {
+  color: inherit;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+  border-radius: 16px; /* Bordes redondeados para items del dropdown */
+  font-weight: bold; /* Fuente en negritas para submenús */
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.dropdown-content a:hover {
+  background-color: rgba(255, 255, 255, 0.3); /* Fondo hover menos transparente */
+  color: var(--color-folly);
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  flex-shrink: 0;
+}
+
+/* Switches (Theme, Login, Language) */
+.theme-switch-container,
+.login-switch-container,
+.language-switch-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+}
+
+.theme-switch,
+.login-switch,
+.language-switch {
+  width: 60px;
+  height: 30px;
+  border-radius: 16px;
+  border: none;
+  cursor: pointer;
+  position: relative;
+  transition: background-color 0.3s ease;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start; /* Alineación inicial para el handle */
+  flex-shrink: 0;
+}
+
+.header.dark .theme-switch,
+.header.dark .login-switch,
+.header.dark .language-switch {
+  background-color: var(--color-dark-switch-bg);
+  border-color: rgba(25, 30, 35, 0.3);
+}
+
+.header.light .theme-switch,
+.header.light .login-switch,
+.header.light .language-switch {
+  background-color: var(--color-light-switch-bg);
+  border-color: rgba(250, 249, 246, 0.3);
+}
+
+.theme-switch-handle,
+.login-icon {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: var(--color-folly);
+  position: absolute;
+  transition: left 0.3s ease, background-color 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2em;
+}
+
+.login-icon {
+  background-color: var(--color-gray-light); /* Gris por defecto */
+  color: var(--color-white-soft); /* Color del icono */
+}
+
+.theme-label,
+.login-label {
+  font-size: 0.9em;
+}
+
+.language-switch {
+  width: auto;
+  padding: 5px 15px;
+  font-size: 0.9em;
+  font-weight: bold;
+  color: inherit;
+  border-bottom: 3px solid transparent; /* Borde inferior para el idioma */
+  transition: border-color 0.3s ease;
+}
+
+.language-switch:active {
+  border-color: var(--color-folly);
+}
+
+/* Hamburger Menu (Mobile) */
+.hamburger-menu {
+  display: none !important;
+}
+
+@media (max-width: 768px) {
+  .hamburger-menu {
+    display: block !important;
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    z-index: 999;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    padding: 5px 10px;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .header {
+    width: 100%; /* Full width on mobile */
+    padding: 10px; /* Reduced padding on mobile */
+  }
+
+  .main-nav {
+    display: none;
+    flex-direction: column;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: var(--color-dark-header-bg);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border-radius: 0;
+    padding: 80px 0 20px 0;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    border: none;
+    transition: transform 0.3s ease-in-out;
+    transform: translateY(-100%);
+    overflow-y: auto;
+  }
+
+  .main-nav.open {
+    display: flex;
+    transform: translateY(0);
+  }
+
+  .main-nav ul {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .main-nav li {
+    margin: 10px 0;
+  }
+
+  .dropdown-content {
+    position: static;
+    background-color: rgba(255, 255, 255, 0.1);
+    box-shadow: none;
+    border: none;
+    padding: 0;
+    width: 100%;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border-radius: 16px;
+  }
+
+  .dropdown-content a {
+    padding-left: 40px;
+  }
+
+  .hamburger-menu {
+    display: block !important;
+    /* Estilo Liquid Glass para el botón hamburguesa */
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    padding: 5px 10px;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+  }
+
+  .header-right {
+    display: flex;
+    flex-direction: row; /* Align items horizontally */
+    justify-content: space-between; /* Distribute space evenly */
+    align-items: center;
+    gap: 10px;
+  }
+
+  .login-switch-container {
+    margin-top: 10px; /* Add margin to create space */
+  }
+
+  .language-switch-container {
+    margin-top: 10px; /* Add margin to create space */
+  }
+}
+
+/* RESPONSIVE FIX - 2024-01-XX - Breakpoint 480px */
+@media (max-width: 480px) {
+  .header {
+    padding: 8px;
+  }
+
+  .header-right {
+    gap: 5px;
+  }
+
+  .theme-switch,
+  .login-switch,
+  .language-switch {
+    width: 50px;
+    height: 25px;
+  }
+
+  .theme-switch-handle,
+  .login-icon {
+    width: 18px;
+    height: 18px;
+    font-size: 1em;
+  }
+
+  .theme-label,
+  .login-label {
+    font-size: 0.8em;
+  }
+
+  .language-switch {
+    padding: 3px 10px;
+    font-size: 0.8em;
+  }
+
+  .hamburger-menu {
+    padding: 4px 8px;
+    font-size: 0.9em;
+  }
+}
+
+/* RESPONSIVE FIX - 2024-01-XX - Breakpoint 320px */
+@media (max-width: 320px) {
+  .header {
+    padding: 5px;
+  }
+
+  .logo {
+    font-size: 0.8em;
+  }
+
+  .logo-guia,
+  .logo-trend {
+    font-size: 0.9em;
+  }
+
+  .header-right {
+    gap: 3px;
+  }
+
+  .theme-switch,
+  .login-switch,
+  .language-switch {
+    width: 45px;
+    height: 22px;
+  }
+
+  .theme-switch-handle,
+  .login-icon {
+    width: 16px;
+    height: 16px;
+    font-size: 0.9em;
+  }
+
+  .theme-label,
+  .login-label {
+    font-size: 0.7em;
+  }
+
+  .language-switch {
+    padding: 2px 8px;
+    font-size: 0.7em;
+  }
+
+  .hamburger-menu {
+    padding: 3px 6px;
+    font-size: 0.8em;
+  }
+}
+
+/* Botón de WhatsApp Fijo */
+.whatsapp-button {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #25D366;
+  color: white;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  z-index: 1001;
+  transition: transform 0.3s ease;
+}
+
+.whatsapp-button:hover {
+  transform: scale(1.1);
+}

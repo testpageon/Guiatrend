@@ -1,0 +1,131 @@
+/* src/styles/CategorySection.css */
+
+.category-section {
+  padding: 40px 20px;
+  text-align: center;
+}
+
+.section-title {
+  font-size: 2em;
+  margin-bottom: 30px;
+  font-weight: bold;
+}
+
+.category-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* 4 columnas en pantallas grandes */
+  gap: 25px; /* Un poco más de espacio */
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+@media (max-width: 992px) {
+  .category-grid {
+    grid-template-columns: repeat(3, 1fr); /* 3 columnas en tablets */
+  }
+}
+
+@media (max-width: 768px) {
+  .category-grid {
+    grid-template-columns: repeat(2, 1fr); /* Mantener 2 columnas hasta 480px */
+  }
+
+  .category-section {
+    margin-top: 2rem;
+  }
+}
+
+/* RESPONSIVE FIX - 2024-01-XX - Breakpoint 480px */
+@media (max-width: 480px) {
+  .category-section {
+    padding: 30px 15px;
+  }
+
+  .section-title {
+    font-size: 1.5em;
+    margin-bottom: 20px;
+  }
+
+  .category-grid {
+    grid-template-columns: 1fr; /* Cambiar a 1 columna solo en 480px */
+    gap: 15px;
+  }
+
+  .category-card {
+    padding: 15px;
+  }
+
+  .category-icon {
+    font-size: 2.5em;
+    margin-bottom: 10px;
+  }
+
+  .category-card h3 {
+    font-size: 1em;
+  }
+}
+
+/* RESPONSIVE FIX - 2024-01-XX - Breakpoint 320px */
+@media (max-width: 320px) {
+  .category-section {
+    padding: 20px 10px;
+  }
+
+  .section-title {
+    font-size: 1.3em;
+    margin-bottom: 15px;
+  }
+
+  .category-grid {
+    gap: 12px;
+  }
+
+  .category-card {
+    padding: 12px;
+  }
+
+  .category-icon {
+    font-size: 2em;
+    margin-bottom: 8px;
+  }
+
+  .category-card h3 {
+    font-size: 0.9em;
+  }
+}
+
+.category-card {
+  padding: 20px;
+  border-radius: 16px;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  
+  /* Estilo Liquid Glass */
+  background: rgba(25, 30, 35, 0.7);
+  border: 1px solid rgba(25, 30, 35, 0.8);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+}
+
+body.light .category-card {
+  background: rgba(250, 249, 246, 0.7);
+  border: 1px solid rgba(250, 249, 246, 0.8);
+}
+
+.category-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+}
+
+.category-icon {
+  font-size: 3em;
+  color: #FF004F; /* Color Folly */
+  margin-bottom: 15px;
+}
+
+.category-card h3 {
+  margin: 0;
+  font-size: 1.1em;
+  font-weight: bold;
+}
